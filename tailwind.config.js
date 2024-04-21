@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./app/**/*.{js,jsx,ts,tsx}", // make sure Tailwind can purge correctly
@@ -7,4 +8,7 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["corporate"],
+  },
 };

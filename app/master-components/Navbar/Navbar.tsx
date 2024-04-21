@@ -3,7 +3,7 @@ import React from "react";
 export function Navbar() {
   return (
     <>
-      <div className="navbar bg-base-100 px-2 sm:px-4">
+      <div className="navbar bg-base-200 px-1">
         {/* Logo Section - Flex 1 to grow and take equal space */}
         <div className="flex-1 flex justify-start">
           {" "}
@@ -49,7 +49,7 @@ const NavBarNavItem = ({ title }: { title: string }) => {
 const NavBarLogo = () => {
   return (
     <a href="/" className="btn btn-ghost text-xl">
-      OneRepMax
+      MaxRep Tracker
     </a>
   );
 };
