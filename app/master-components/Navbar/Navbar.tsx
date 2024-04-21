@@ -1,5 +1,8 @@
 import React from "react";
 
+const LOL_MEHDI_CARTOON_IMG_URL =
+  "https://i.postimg.cc/V6ZR561n/DALL-E-2024-04-21-08-09-33-Create-a-cartoon-version-of-the-man-s-portrait-with-a-blue-background.webp";
+
 export function Navbar() {
   return (
     <>
@@ -85,7 +88,7 @@ const NavBarUserAvatar = () => {
         <div className="w-10 rounded-full">
           <img
             alt="Tailwind CSS Navbar component"
-            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            src={LOL_MEHDI_CARTOON_IMG_URL}
           />
         </div>
       </div>
