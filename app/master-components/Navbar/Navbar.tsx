@@ -5,7 +5,7 @@ const LOL_MEHDI_CARTOON_IMG_URL =
 
 export function Navbar() {
   const navBarItems = [
-    { title: "Dashboard" },
+    { title: "Home" },
     { title: "Calculator" },
     { title: "Workout Programs" },
     { title: "Tracker" },

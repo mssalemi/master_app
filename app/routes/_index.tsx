@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
+import AdtechV1 from "../master-components/Adtech/AdtechV1";
+
 import { MainContentV1 } from "../components/MainContent/MainContentV1.js";
 import { QuickCalculator } from "../components/QuickCalculator/QuickCalculator.js";
 import { PopularPrograms } from "../components/PopularPrograms/PopularPrograms.js";
@@ -36,9 +38,9 @@ export default function Index() {
 
       <MainContentV1 />
       <div className="divider"></div>
-      <div className="flex justify-center">
+      <AdtechV1>
         <PopularPrograms />
-      </div>
+      </AdtechV1>
 
       <Footer />
     </>
