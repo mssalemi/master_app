@@ -4,6 +4,12 @@ const LOL_MEHDI_CARTOON_IMG_URL =
   "https://i.postimg.cc/V6ZR561n/DALL-E-2024-04-21-08-09-33-Create-a-cartoon-version-of-the-man-s-portrait-with-a-blue-background.webp";
 
 export function Navbar() {
+  const navBarItems = [
+    { title: "Dashboard" },
+    { title: "Calculator" },
+    { title: "Workout Programs" },
+    { title: "Tracker" },
+  ];
   return (
     <>
       <div className="navbar bg-base-200 px-1">
@@ -16,10 +22,9 @@ export function Navbar() {
 
         {/* Navigation Links - Middle section grows on larger screens */}
         <div className="lg:flex items-center justify-center space-x-2 hidden sm:block">
-          <NavBarNavItem title="Dashboard" />
-          <NavBarNavItem title="Calculator" />
-          <NavBarNavItem title="Workout Programs" />
-          <NavBarNavItem title="Tracker" />
+          {navBarItems.map((item) => (
+            <NavBarNavItem key={item.title} title={item.title} />
+          ))}
         </div>
 
         {/* User Avatar Section - Flex 1 to grow and take equal space */}
@@ -40,8 +45,6 @@ const NavBarNavItem = ({ title }: { title: string }) => {
       className="btn btn-ghost"
       style={{
         height: "1.5rem",
-        minHeight: "1.5rem",
-        padding: "0.3rem",
       }}
     >
       {title}
@@ -52,7 +55,7 @@ const NavBarNavItem = ({ title }: { title: string }) => {
 const NavBarLogo = () => {
   return (
     <a href="/" className="btn btn-ghost text-xl">
-      MaxRep Tracker
+      StrengthTraining.ai
     </a>
   );
 };

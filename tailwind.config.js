@@ -5,7 +5,11 @@ export default {
     "./app/**/*.{js,jsx,ts,tsx}", // make sure Tailwind can purge correctly
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
