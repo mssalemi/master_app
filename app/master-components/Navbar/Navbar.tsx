@@ -1,6 +1,8 @@
 import React from "react";
 
-const LOL_MEHDI_CARTOON_IMG_URL =
+const GUEST_USER_AVATAR_IMG_URL =
+  "https://i.postimg.cc/0y8PvSdz/DALL-E-2024-04-22-21-46-47-Create-a-stylized-simplified-avatar-of-a-guest-user-suitable-for-a-sm.webp";
+const SIGN_IN_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/V6ZR561n/DALL-E-2024-04-21-08-09-33-Create-a-cartoon-version-of-the-man-s-portrait-with-a-blue-background.webp";
 
 export function Navbar() {
@@ -64,26 +66,46 @@ const NavBarLogo = () => {
   );
 };
 
-const NavBarDropDownMenu = () => {
+const NavBarDropDownMenu = ({ user }: { user?: User }) => {
+  const listItems = !user
+    ? [
+        { title: "Profile", link: "/profile" },
+        { title: "Settings", link: "/settings" },
+        { title: "Contact Us", link: "/contact-us" },
+        { title: "Logout", link: "/" },
+      ]
+    : [
+        { title: "Login", link: "/login" },
+        { title: "Sign Up", link: "/sign-up" },
+        { title: "Contact Us", link: "/contact-us" },
+      ];
+
   return (
     <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-      <li>
-        <a className="justify-between" href="/profile">
-          Profile
-          <span className="badge">New</span>
-        </a>
-      </li>
-      <li>
-        <a href="/settings">Settings</a>
-      </li>
-      <li>
-        <a href="/">Logout</a>
-      </li>
+      {listItems.map((item) => {
+        return (
+          <li key={item.title}>
+            <a className="justify-between" href={item.link}>
+              {item.title}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 };
 
-const NavBarUserAvatar = () => {
+interface User {
+  name: string;
+  email: string;
+  avatarUrl?: string;
+}
+
+const NavBarUserAvatar = ({ user }: { user?: User }) => {
+  const userAvatarImgUrl = !user
+    ? SIGN_IN_USER_AVATAR_IMG_URL
+    : GUEST_USER_AVATAR_IMG_URL;
+
   return (
     <>
       {" "}
@@ -93,10 +115,7 @@ const NavBarUserAvatar = () => {
         className="btn btn-ghost btn-circle avatar"
       >
         <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src={LOL_MEHDI_CARTOON_IMG_URL}
-          />
+          <img alt="Tailwind CSS Navbar component" src={userAvatarImgUrl} />
         </div>
       </div>
     </>
