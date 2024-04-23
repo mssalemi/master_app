@@ -67,7 +67,7 @@ const NavBarLogo = () => {
 };
 
 const NavBarDropDownMenu = ({ user }: { user?: User }) => {
-  const listItems = !user
+  const listItems = user
     ? [
         { title: "Profile", link: "/profile" },
         { title: "Settings", link: "/settings" },
@@ -76,7 +76,7 @@ const NavBarDropDownMenu = ({ user }: { user?: User }) => {
       ]
     : [
         { title: "Login", link: "/login" },
-        { title: "Sign Up", link: "/sign-up" },
+        { title: "Sign Up", link: "/user/create" },
         { title: "Contact Us", link: "/contact-us" },
       ];
 
@@ -102,7 +102,7 @@ interface User {
 }
 
 const NavBarUserAvatar = ({ user }: { user?: User }) => {
-  const userAvatarImgUrl = !user
+  const userAvatarImgUrl = user
     ? SIGN_IN_USER_AVATAR_IMG_URL
     : GUEST_USER_AVATAR_IMG_URL;
 
