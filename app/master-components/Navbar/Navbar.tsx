@@ -5,10 +5,10 @@ const LOL_MEHDI_CARTOON_IMG_URL =
 
 export function Navbar() {
   const navBarItems = [
-    { title: "Home" },
-    { title: "Calculator" },
-    { title: "Workout Programs" },
-    { title: "Tracker" },
+    { title: "Home", link: "/" },
+    { title: "Calculator", link: "/calculator" },
+    { title: "Workout Programs", link: "workoutprograms" },
+    { title: "Tracker", link: "tracker" },
   ];
   return (
     <>
@@ -23,7 +23,11 @@ export function Navbar() {
         {/* Navigation Links - Middle section grows on larger screens */}
         <div className="lg:flex items-center justify-center space-x-2 hidden sm:block">
           {navBarItems.map((item) => (
-            <NavBarNavItem key={item.title} title={item.title} />
+            <NavBarNavItem
+              key={item.title}
+              title={item.title}
+              link={item.link}
+            />
           ))}
         </div>
 
@@ -38,10 +42,10 @@ export function Navbar() {
   );
 }
 
-const NavBarNavItem = ({ title }: { title: string }) => {
+const NavBarNavItem = ({ title, link }: { title: string; link: string }) => {
   return (
     <a
-      href="/"
+      href={link}
       className="btn btn-ghost"
       style={{
         height: "1.5rem",
@@ -64,13 +68,13 @@ const NavBarDropDownMenu = () => {
   return (
     <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
       <li>
-        <a className="justify-between" href="/">
+        <a className="justify-between" href="/profile">
           Profile
           <span className="badge">New</span>
         </a>
       </li>
       <li>
-        <a href="/">Settings</a>
+        <a href="/settings">Settings</a>
       </li>
       <li>
         <a href="/">Logout</a>
