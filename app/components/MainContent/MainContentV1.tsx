@@ -58,7 +58,7 @@ const SubDescription = () => {
 
   return (
     <>
-      <div className="badge badge-neutral text-lg">
+      <div className="badge badge-neutral text-lg py-2 ">
         {DEFAULT_SUB_DESCRIPTION}
       </div>
       <ul className="text-sm px-2">

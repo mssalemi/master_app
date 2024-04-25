@@ -9,6 +9,7 @@ import {
 import "./styles.css";
 
 import { Navbar } from "./master-components/";
+import { Footer } from "./components/Footer/Footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,6 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <Footer />
       </body>
     </html>
   );

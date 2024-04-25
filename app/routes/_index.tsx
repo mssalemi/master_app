@@ -4,7 +4,6 @@ import AdtechV1 from "../master-components/Adtech/AdtechV1";
 import { MainContentV1 } from "../components/MainContent/MainContentV1.js";
 import { QuickCalculator } from "../components/QuickCalculator/QuickCalculator.js";
 import { PopularPrograms } from "../components/PopularPrograms/PopularPrograms.js";
-import { Footer } from "../components/Footer/Footer.js";
 
 export const meta: MetaFunction = () => {
   return [
@@ -29,7 +28,7 @@ export default function Index() {
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center flex flex-col">
+        <div className="hero-content text-center flex flex-col px-16 py-32">
           <h1 className="text-5xl font-bold mb-4 text-white px-8">
             The workout program you want, the results you need.
           </h1>
@@ -55,8 +54,6 @@ export default function Index() {
       <AdtechV1>
         <PopularPrograms />
       </AdtechV1>
-
-      <Footer />
     </>
   );
 }
