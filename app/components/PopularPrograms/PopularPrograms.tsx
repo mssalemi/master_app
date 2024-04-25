@@ -24,14 +24,40 @@ export function PopularPrograms() {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold">Popular Programs</h2>
-      <ProgramCard />
+      <ProgramCardGrid />
     </div>
   );
 }
 
+const ProgramCardGrid = () => {
+  return (
+    <>
+      <div className="p-4 flex">
+        <div className="w-1/2">
+          <ProgramCard />
+        </div>
+        <div className="w-1/2">
+          <ProgramCard />
+        </div>
+      </div>
+      <div className="p-4 flex">
+        <div className="w-1/3">
+          <ProgramCard />
+        </div>
+        <div className="w-1/3">
+          <ProgramCard />
+        </div>
+        <div className="w-1/3">
+          <ProgramCard />
+        </div>
+      </div>
+    </>
+  );
+};
+
 const ProgramCard = () => {
   return (
-    <div className="card w-1/2 bg-base-100 shadow-xl image-full">
+    <div className="card bg-base-100 shadow-xl image-full">
       <figure>
         <img
           src="https://i.postimg.cc/857gB6RB/DALL-E-2024-04-22-07-38-52-Create-a-background-image-in-a-2-3-ratio-showing-a-person-working-out-i.webp"
@@ -39,14 +65,14 @@ const ProgramCard = () => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="text-2xl font-bold text-900 mb-2">
+        <h2 className="text-xl font-bold text-900 mb-2">
           6-Week Intro to Bodybuilding
         </h2>
-        <p className="text-700 mb-4">
+        <p className="text-sm mb-4">
           This program is designed for beginners who want to get started with
           bodybuilding.
         </p>
-        <div className="space-y-2 text-600">
+        <div className="text-sm space-y-2 text-600">
           <p>
             <span className="font-semibold">Duration:</span>{" "}
             <strong>6 weeks</strong>

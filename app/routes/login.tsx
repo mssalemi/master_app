@@ -36,7 +36,11 @@ export default function LoginPage() {
       <h2 className="text-lg font-semibold mb-4">Login to your account</h2>
       <div className="card bg-base-100 shadow-xl flex flex-col-reverse md:flex-row md:w-full">
         <ImageDisplay imgUrl={IMG_URL} />
-        <Form fields={formFields} onSubmit={() => console.log("hey")} />
+        <Form
+          fields={formFields}
+          onSubmit={() => console.log("hey")}
+          title="Login"
+        />
       </div>
     </div>
   );

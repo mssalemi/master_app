@@ -56,7 +56,15 @@ export default function UserCreatePage() {
     <div className="p-8 flex flex-col items-center justify-center">
       <h2 className="text-lg font-semibold mb-4">Sign Up Today</h2>
       <div className="card bg-base-100 shadow-xl flex flex-col-reverse md:flex-row md:w-full">
-        <Form fields={formFields} onSubmit={() => console.log("hey")} />
+        <Form
+          fields={formFields}
+          onSubmit={(e) => {
+            e.preventDefault();
+            console.log("hey");
+            console.log(e.target);
+          }}
+          title={"Sign Up"}
+        />
       </div>
     </div>
   );
