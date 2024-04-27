@@ -32,7 +32,7 @@ export function PopularPrograms() {
 const ProgramCardGrid = () => {
   return (
     <>
-      <div className="p-4 flex">
+      <div className="px-4 py-1 flex gap-2">
         <div className="w-1/2">
           <ProgramCard />
         </div>
@@ -40,7 +40,7 @@ const ProgramCardGrid = () => {
           <ProgramCard />
         </div>
       </div>
-      <div className="p-4 flex">
+      <div className="px-4 py-1 flex gap-2">
         <div className="w-1/3">
           <ProgramCard />
         </div>

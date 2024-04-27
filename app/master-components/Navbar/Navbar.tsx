@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const GUEST_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/0y8PvSdz/DALL-E-2024-04-22-21-46-47-Create-a-stylized-simplified-avatar-of-a-guest-user-suitable-for-a-sm.webp";
 const SIGN_IN_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/V6ZR561n/DALL-E-2024-04-21-08-09-33-Create-a-cartoon-version-of-the-man-s-portrait-with-a-blue-background.webp";
+import { useNavigate, Link } from "@remix-run/react";
 
 export function Navbar() {
   const navBarItems = [
     { title: "Home", link: "/" },
     { title: "Calculator", link: "/calculator" },
-    { title: "Workout Programs", link: "workoutprograms" },
-    { title: "Tracker", link: "tracker" },
+    { title: "Workout Programs", link: "/workoutprograms" },
+    { title: "Tracker", link: "/tracker" },
   ];
   return (
     <>
@@ -45,28 +46,35 @@ export function Navbar() {
 }
 
 const NavBarNavItem = ({ title, link }: { title: string; link: string }) => {
+  const navigate = useNavigate();
   return (
-    <a
-      href={link}
+    <button
+      onClick={() => navigate(link)}
       className="btn btn-ghost"
       style={{
         height: "1.5rem",
       }}
     >
       {title}
-    </a>
+    </button>
   );
 };
 
 const NavBarLogo = () => {
+  const navigate = useNavigate();
   return (
-    <a href="/" className="btn btn-ghost text-xl">
+    <button onClick={() => navigate("/")} className="btn btn-ghost text-xl">
       StrengthTraining.ai
-    </a>
+    </button>
   );
 };
 
 const NavBarDropDownMenu = ({ user }: { user?: User }) => {
+  const [isMenuOpen, setMenuOpen] = useState(true);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const listItems = user
     ? [
         { title: "Profile", link: "/profile" },
@@ -81,17 +89,20 @@ const NavBarDropDownMenu = ({ user }: { user?: User }) => {
       ];
 
   return (
-    <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-      {listItems.map((item) => {
-        return (
-          <li key={item.title}>
-            <a className="justify-between" href={item.link}>
-              {item.title}
-            </a>
-          </li>
-        );
-      })}
-    </ul>
+    <div>
+      <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        {listItems.map((item) => {
+          return (
+            <li key={item.title}>
+              {/* Add onClick handler to close the menu when an item is clicked */}
+              <Link to={item.link} onClick={closeMenu}>
+                {item.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 
@@ -102,7 +113,7 @@ interface User {
 }
 
 const NavBarUserAvatar = ({ user }: { user?: User }) => {
-  const userAvatarImgUrl = user
+  const userAvatarImgUrl = !user
     ? SIGN_IN_USER_AVATAR_IMG_URL
     : GUEST_USER_AVATAR_IMG_URL;
 
