@@ -10,10 +10,6 @@ export const BaseCalculatorForm = ({
 }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex p-4 items-center">
-        <div className="badge badge-accent">{formulaType}</div>
-        <Modal />
-      </div>
       <div className="stats text-secondary-content border-none">
         <div className="stat">
           <div className="stat-title">WEIGHT</div>

@@ -32,25 +32,24 @@ export function PopularPrograms() {
 const ProgramCardGrid = () => {
   return (
     <>
-      <div className="px-4 py-1 flex gap-2">
-        <div className="w-1/2">
+      <div className="flex flex-row flex-wrap gap">
+        <div className="w-full md:w-1/2 p-1">
           <ProgramCard />
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2 p-1">
+          <ProgramCard />
+        </div>
+        <div className="w-full md:w-1/3 p-1">
+          <ProgramCard />
+        </div>
+        <div className="w-full md:w-1/3 p-1">
+          <ProgramCard />
+        </div>
+        <div className="w-full md:w-1/3 p-1">
           <ProgramCard />
         </div>
       </div>
-      <div className="px-4 py-1 flex gap-2">
-        <div className="w-1/3">
-          <ProgramCard />
-        </div>
-        <div className="w-1/3">
-          <ProgramCard />
-        </div>
-        <div className="w-1/3">
-          <ProgramCard />
-        </div>
-      </div>
+      <div className="flex gap-2"></div>
     </>
   );
 };

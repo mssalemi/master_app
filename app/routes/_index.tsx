@@ -28,7 +28,7 @@ export default function Index() {
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center flex flex-col px-16 py-32">
+        <div className="hero-content text-center flex flex-col md:px-16 md:py-32">
           <h1 className="text-5xl font-bold mb-4 text-white px-8">
             The workout program you want, the results you need.
           </h1>

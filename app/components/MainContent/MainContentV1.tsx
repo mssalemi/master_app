@@ -1,11 +1,5 @@
 import React from "react";
 
-const CONTENT_IMG_URL =
-  "https://i.postimg.cc/G2H9Qhwc/max-rep-tracker-clipboard-icon.png";
-
-const CONTENT_IMG_URL_transparent =
-  "https://i.postimg.cc/WbwyNcKb/max-rep-tracker-clipboard-icon-removebg-preview.png";
-
 const DEFAULT_DESCRIPTION =
   "Ready to elevate your fitness journey? Explore tailored workout programs, track your progress, and smash your goals with MaxRep Tracker. Let's get stronger, together!";
 
@@ -21,14 +15,6 @@ export function MainContentV1() {
   return (
     <>
       <div className="flex justify-center items-center p-4">
-        <div>
-          <figure className="hidden sm:block">
-            <img
-              src={CONTENT_IMG_URL_transparent}
-              alt="Clipboard reading MAP REP Tracker"
-            />
-          </figure>
-        </div>
         <div className="card-body">
           <h2 className="card-title">Tailored workout programs!</h2>
 
@@ -63,7 +49,7 @@ const SubDescription = () => {
       </div>
       <ul className="text-sm px-2">
         <>
-          <div className="overflow-x-auto">
+          <div className="">
             <table className="table">
               <thead>
                 <tr>
