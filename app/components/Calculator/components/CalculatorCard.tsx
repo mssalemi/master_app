@@ -7,7 +7,6 @@ interface Props {
 
 import { FormField } from "~/master-components";
 import { BaseCalculatorForm } from "./BaseCalculatorForm";
-import { ResultsCard } from "./ResultsCard";
 import { Modal } from "./Modal/Modal";
 import { StatCard } from "./StatCard";
 
@@ -33,6 +32,23 @@ export const CalculatorCard = ({
     },
   ];
 
+  const oneRepMaxStats: {
+    title: string;
+    units: string;
+    value: number | undefined;
+  }[] = [
+    // {
+    //   title: "MOSHID",
+    //   units: "~1rm",
+    //   value: undefined,
+    // },
+    {
+      title: "EPLEY",
+      units: "~1rm",
+      value: undefined,
+    },
+  ];
+
   return (
     <div className="card-compact bg-base-100 shadow-xl">
       <div className="card-body">
@@ -48,13 +64,19 @@ export const CalculatorCard = ({
             <div className="text-left text-sm">{description}</div>
           </div>
           <div className="py-8 md:py-0">
-            {/* <ResultsCard /> */}
-            <StatCard
-              backgroundColor="neutral-content"
-              title="1RM"
-              units="EPLEY estimate"
-              value={undefined}
-            />
+            <div className="stats stats-vertical lg:stats-horizontal shadow">
+              {oneRepMaxStats.map((stat) => (
+                <StatCard
+                  key={stat.title}
+                  backgroundColor="accent"
+                  textColor="primary-content"
+                  title={stat.title}
+                  units={stat.units}
+                  value={stat.value}
+                  compact
+                />
+              ))}
+            </div>
           </div>
         </div>
 
