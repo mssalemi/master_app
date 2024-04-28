@@ -1,4 +1,5 @@
 import { Modal } from "./Modal/Modal";
+import { StatCard } from "./StatCard";
 export const BaseCalculatorForm = ({
   handleSubmit,
   children,
@@ -8,20 +9,35 @@ export const BaseCalculatorForm = ({
   handleSubmit: () => void;
   children?: React.ReactNode;
 }) => {
+  const ormStats = [
+    {
+      title: "WEIGHT",
+      units: "lbs",
+      value: 225,
+    },
+    {
+      title: "REPS",
+      units: "completed",
+      value: 5,
+    },
+  ];
+
   return (
     <form onSubmit={handleSubmit}>
-      <div className="stats text-secondary-content border-none">
-        <div className="stat">
-          <div className="stat-title">WEIGHT</div>
-          <div className="stat-value text-6xl">315</div>
-          <div className="stat-title">lbs</div>
-        </div>
-        <div className="stat border-none">
-          <div className="stat-title">REPS</div>
-          <div className="stat-value text-6xl">5</div>
-          <div className="stat-title">reps completed</div>
+      <div className="flex justify-center">
+        {" "}
+        <div className="stats text- center text-secondary-content border-none">
+          {ormStats.map((stat, index) => (
+            <StatCard
+              key={index}
+              title={stat.title}
+              units={stat.units}
+              value={stat.value}
+            />
+          ))}
         </div>
       </div>
+
       {children}
     </form>
   );

@@ -24,7 +24,7 @@ export const Calculator = () => {
           <div className="py-8">
             <div className="card bg-base-100 shadow-xl flex flex-cols items-start p-8">
               <h2 className="card-title py-4">Repetition Maxes</h2>
-              <div className="flex flex-rows space-between">
+              <div className="flex flex-rows justify-center">
                 <RepMaxesTable />
               </div>
             </div>

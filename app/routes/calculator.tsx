@@ -15,17 +15,7 @@ const BENCH_PRESS_IMAGE =
 export default function CalculatorPage() {
   return (
     <>
-      <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: `url(${BENCH_PRESS_IMAGE})`,
-        }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="py-32 hero-content text-center flex justify-between">
-          <Calculator />
-        </div>
-      </div>
+      <Calculator />
       <FormulaExplorer />
     </>
   );
