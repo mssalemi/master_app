@@ -10,19 +10,6 @@ interface RepEstimate {
 }
 
 export const RepMaxesTable = () => {
-  const rows = [100, 95, 90, 85, 80, 75, 70, 65, 60];
-  const reps = [
-    [1],
-    [2],
-    [3, 4],
-    [5, 6],
-    [7, 9],
-    [9, 11],
-    [12, 14],
-    ["15+"],
-    ["18+"],
-  ];
-
   const repEstimates = [
     { repRange: [1, 1], percentage: 100 },
     { repRange: [2, 2], percentage: 95 },
