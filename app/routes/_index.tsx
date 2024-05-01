@@ -22,10 +22,10 @@ export default function Index() {
   return (
     <>
       <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage: `url(${BENCH_PRESS_IMAGE})`,
-        }}
+        className="hero min-h-screen bg-base-200"
+        // style={{
+        //   backgroundImage: `url(${BENCH_PRESS_IMAGE})`,
+        // }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center flex flex-col md:px-16 md:py-32">

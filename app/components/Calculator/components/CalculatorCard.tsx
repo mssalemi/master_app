@@ -32,16 +32,17 @@ export const CalculatorCard = ({
     },
   ];
 
+  // Max 3 Stats at a Time
   const oneRepMaxStats: {
     title: string;
     units: string;
     value: number | undefined;
   }[] = [
-    // {
-    //   title: "MOSHID",
-    //   units: "~1rm",
-    //   value: undefined,
-    // },
+    {
+      title: "MOSHID",
+      units: "~1rm",
+      value: undefined,
+    },
     {
       title: "EPLEY",
       units: "~1rm",
@@ -64,18 +65,20 @@ export const CalculatorCard = ({
             <div className="text-left text-sm">{description}</div>
           </div>
           <div className="py-8 md:py-0">
-            <div className="stats stats-vertical lg:stats-horizontal shadow">
-              {oneRepMaxStats.map((stat) => (
-                <StatCard
-                  key={stat.title}
-                  backgroundColor="accent"
-                  textColor="primary-content"
-                  title={stat.title}
-                  units={stat.units}
-                  value={stat.value}
-                  compact
-                />
-              ))}
+            <div className="flex justify-center">
+              <div className="stats stats-horizontal md:stats-vertical shadow ">
+                {oneRepMaxStats.map((stat) => (
+                  <StatCard
+                    key={stat.title}
+                    backgroundColor="accent"
+                    textColor="primary-content"
+                    title={stat.title}
+                    units={stat.units}
+                    value={stat.value}
+                    compact
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

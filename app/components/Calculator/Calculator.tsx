@@ -22,8 +22,11 @@ export const Calculator = () => {
         </div>
         {displayRepMaxPercentages && (
           <div className="py-8">
-            <div className="bg-base-100 flex flex-cols items-start p-8">
-              <h2 className="py-4">Repetition Maxes</h2>
+            <div className="bg-base-100 flex flex-col items-start p-8">
+              <div>
+                <h2 className="py-4">Repetition Maxes</h2>
+              </div>
+
               <div className="flex flex-rows justify-center">
                 <RepMaxesTable />
               </div>

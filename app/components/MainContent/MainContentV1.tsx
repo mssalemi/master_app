@@ -19,11 +19,11 @@ export function MainContentV1() {
           <h2 className="card-title">Tailored workout programs!</h2>
 
           <Description />
-          <SubDescription />
-          <div className="card-actions justify-end">
+          {/* <SubDescription /> */}
+          {/* <div className="card-actions justify-end">
             <button className="btn btn-tertiary">{GET_STARTED}</button>
             <button className="btn btn-tertiary">{BUTTON_TEXT}</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
@@ -47,56 +47,9 @@ const SubDescription = () => {
       <div className="badge badge-neutral text-lg py-2 ">
         {DEFAULT_SUB_DESCRIPTION}
       </div>
-      <ul className="text-sm px-2">
-        <>
-          <div className="">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Workout Program</th>
-                  <th>Number of Weeks</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-
-                {LINKS.map(({ text, href }) => {
-                  return (
-                    <tr key={text}>
-                      <td>
-                        <div className="flex items-center gap-3">
-                          <div className="avatar">
-                            <div className="mask mask-squircle w-12 h-12">
-                              <img
-                                src={STRENGTH_WORKOUT_ICON_URL}
-                                alt="Strength Workout Icon"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="font-bold">{text}</div>
-                            <div className="text-sm opacity-50">USA</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p>5</p>
-                      </td>
-                      <td>Powerlifting</td>
-                      <th>
-                        <a href={href} className="btn btn-ghost btn-xs">
-                          details
-                        </a>
-                      </th>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </>
-      </ul>
+      <>
+        <div className="flex"></div>
+      </>
     </>
   );
 };
