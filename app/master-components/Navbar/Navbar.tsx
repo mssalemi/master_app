@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Command } from "lucide-react";
 
 const GUEST_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/0y8PvSdz/DALL-E-2024-04-22-21-46-47-Create-a-stylized-simplified-avatar-of-a-guest-user-suitable-for-a-sm.webp";
@@ -15,7 +16,7 @@ export function Navbar() {
   ];
   return (
     <>
-      <div className="navbar bg-base-200 px-1">
+      <div className="navbar px-1">
         {/* Logo Section - Flex 1 to grow and take equal space */}
         <div className="flex-1 flex justify-start">
           {" "}
@@ -63,9 +64,14 @@ const NavBarNavItem = ({ title, link }: { title: string; link: string }) => {
 const NavBarLogo = () => {
   const navigate = useNavigate();
   return (
-    <button onClick={() => navigate("/")} className="btn btn-ghost text-xl">
-      StrengthTraining.ai
-    </button>
+    // <button onClick={() => navigate("/")} className="btn btn-ghost text-xl">
+    //   StrengthTraining.ai
+    // </button>
+
+    <Link to="/" className="flex items-center space-x-2">
+      <Command className="h-8 w-8" />
+      <h1 className="text-xl font-semibold">Strength Training .ai</h1>
+    </Link>
   );
 };
 

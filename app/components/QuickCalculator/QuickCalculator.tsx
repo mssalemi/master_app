@@ -2,7 +2,7 @@ import React from "react";
 
 export function QuickCalculator() {
   return (
-    <div className="card shadow-lg compact side bg-base-100">
+    <div className="card shadow-lg compact side bg-base-200">
       <div className="card-body">
         <QuickCalculatorForm />
       </div>
@@ -43,7 +43,7 @@ function Form() {
         Reps Completed
         <input type="text" className="grow" placeholder="5" />
       </label>
-      <div className="flex">
+      <div className="flex gap-4">
         <select className="select">
           <option disabled selected>
             Pounds (lbs)
@@ -51,7 +51,7 @@ function Form() {
           <option>Kilograms (kgs)</option>
         </select>
       </div>
-      <button className="btn btn-block btn-sm">
+      <button className="btn btn-block btn-primary btn-sm">
         Calculate Max
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"

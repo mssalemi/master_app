@@ -26,11 +26,11 @@ export function MainContentV1() {
 
 const Description = () => {
   return (
-    <div className="container flex justify-center flex py-8 overflow-x-hidden">
+    <div className="container flex justify-center flex py-8">
       <div className="flex flex-col items-center space-y-4 text-center p-4">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tighter">
           A{" "}
-          <span className="font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">
+          <span className="font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 text-transparent bg-clip-text bg-300% animate-gradient">
             Strength Training
           </span>{" "}
           workout program tracker, built for athletes.
@@ -51,137 +51,95 @@ const Description = () => {
 };
 
 const WorkoutProgramsTable = () => {
+  const headers = ["Workout Program", "Level", "Workouts per Week", ""];
+  const items: {
+    workoutProgramName: string;
+    level: string;
+    workoutsPerWeek: string;
+    avatarUrl: string;
+    author: string;
+    country: string;
+  }[] = [
+    {
+      workoutProgramName: "Candito 6 Week Strength Program",
+      level: "Intermediate",
+      workoutsPerWeek: "4",
+      avatarUrl: STRENGTH_WORKOUT_ICON_URL,
+      author: "Jonnie Candito",
+      country: "United States",
+    },
+    {
+      workoutProgramName: "Rippler Program",
+      level: "Advanced",
+      workoutsPerWeek: "4",
+      avatarUrl: STRENGTH_WORKOUT_ICON_URL,
+      author: "GZCL",
+      country: "United States",
+    },
+    {
+      workoutProgramName: "Layne Norton's PHAT Program",
+      level: "Advanced",
+      workoutsPerWeek: "5",
+      avatarUrl: STRENGTH_WORKOUT_ICON_URL,
+      author: "Layne Norton",
+      country: "United States",
+    },
+    {
+      workoutProgramName: "Wendler 5/3/1",
+      level: "Beginner",
+      workoutsPerWeek: "3",
+      avatarUrl: STRENGTH_WORKOUT_ICON_URL,
+      author: "Jim Wendler",
+      country: "United States",
+    },
+  ];
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
         {/* head */}
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
+            {headers.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {/* row 1 */}
-          <tr>
-            <td>
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <img
-                      src="/tailwind-css-component-profile-2@56w.png"
-                      alt="Avatar Tailwind CSS Component"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold">Hart Hagerty</div>
-                  <div className="text-sm opacity-50">United States</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              Zemlak, Daniel and Leannon
-              <br />
-              <span className="badge badge-ghost badge-sm">
-                Desktop Support Technician
-              </span>
-            </td>
-            <td>Purple</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
-            </th>
-          </tr>
-          {/* row 2 */}
-          <tr>
-            <td>
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <img
-                      src="/tailwind-css-component-profile-3@56w.png"
-                      alt="Avatar Tailwind CSS Component"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold">Brice Swyre</div>
-                  <div className="text-sm opacity-50">China</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              Carroll Group
-              <br />
-              <span className="badge badge-ghost badge-sm">Tax Accountant</span>
-            </td>
-            <td>Red</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
-            </th>
-          </tr>
-          {/* row 3 */}
-          <tr>
-            <td>
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <img
-                      src="/tailwind-css-component-profile-4@56w.png"
-                      alt="Avatar Tailwind CSS Component"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold">Marjy Ferencz</div>
-                  <div className="text-sm opacity-50">Russia</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              Rowe-Schoen
-              <br />
-              <span className="badge badge-ghost badge-sm">
-                Office Assistant I
-              </span>
-            </td>
-            <td>Crimson</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
-            </th>
-          </tr>
-          {/* row 4 */}
-          <tr>
-            <td>
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <img
-                      src="/tailwind-css-component-profile-5@56w.png"
-                      alt="Avatar Tailwind CSS Component"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className="font-bold">Yancy Tear</div>
-                  <div className="text-sm opacity-50">Brazil</div>
-                </div>
-              </div>
-            </td>
-            <td>
-              Wyman-Ledner
-              <br />
-              <span className="badge badge-ghost badge-sm">
-                Community Outreach Specialist
-              </span>
-            </td>
-            <td>Indigo</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
-            </th>
-          </tr>
+          {items.map((item, index) => {
+            return (
+              <>
+                <tr key={index}>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img
+                            src={item.avatarUrl}
+                            alt="Workout Program Author"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{item.author}</div>
+                        <div className="text-sm opacity-50">{item.country}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span className="badge badge-ghost badge-sm">
+                      {item.level}
+                    </span>
+                  </td>
+                  <td>{item.workoutsPerWeek}</td>
+                  <th>
+                    <button className="btn btn-ghost btn-xs">details</button>
+                  </th>
+                </tr>
+              </>
+            );
+          })}
         </tbody>
       </table>
     </div>

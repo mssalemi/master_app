@@ -38,11 +38,11 @@ export const CalculatorCard = ({
     units: string;
     value: number | undefined;
   }[] = [
-    {
-      title: "MOSHID",
-      units: "~1rm",
-      value: undefined,
-    },
+    // {
+    //   title: "MOSHID",
+    //   units: "~1rm",
+    //   value: undefined,
+    // },
     {
       title: "EPLEY",
       units: "~1rm",
