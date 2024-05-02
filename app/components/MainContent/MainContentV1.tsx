@@ -16,44 +16,174 @@ export function MainContentV1() {
     <>
       <div className="flex justify-center items-center p-4">
         <div className="card-body">
-          <h2 className="card-title">Tailored workout programs!</h2>
-
           <Description />
-          {/* <SubDescription /> */}
-          {/* <div className="card-actions justify-end">
-            <button className="btn btn-tertiary">{GET_STARTED}</button>
-            <button className="btn btn-tertiary">{BUTTON_TEXT}</button>
-          </div> */}
+          <WorkoutProgramsTable />
         </div>
       </div>
     </>
   );
 }
 
-const SubDescription = () => {
-  const LINKS = [
-    {
-      text: "AI Generated",
-      href: "/",
-    },
-    { text: "Wendler 5/3/1", href: "/" },
-    { text: "MedxMan's Candito 5 Week", href: "/" },
-    { text: "The Rippler", href: "/" },
-    { text: "Custom", href: "/" },
-  ];
-
+const Description = () => {
   return (
-    <>
-      <div className="badge badge-neutral text-lg py-2 ">
-        {DEFAULT_SUB_DESCRIPTION}
+    <div className="container flex justify-center flex py-8 overflow-x-hidden">
+      <div className="flex flex-col items-center space-y-4 text-center p-4">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tighter">
+          A{" "}
+          <span className="font-extrabold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient">
+            Strength Training
+          </span>{" "}
+          workout program tracker, built for athletes.
+        </h1>
+
+        <p className="text-muted-foreground font-bold mt-2">
+          Our program tracker is not just a tool—it's your personal training
+          companion. Customized to fit the unique needs of athletes, it offers a
+          variety of strength training regimes ranging from powerlifting to
+          sport-specific conditioning. Whether you're preparing for an upcoming
+          season or aiming to improve your personal bests, our tracker adapts to
+          your goals, providing structured workouts that evolve as you advance.
+          See below for our most popular strength training programs!
+        </p>
       </div>
-      <>
-        <div className="flex"></div>
-      </>
-    </>
+    </div>
   );
 };
 
-const Description = () => {
-  return <p className="text-gray-700 text-lg mb-4">{DEFAULT_DESCRIPTION}</p>;
+const WorkoutProgramsTable = () => {
+  return (
+    <div className="overflow-x-auto">
+      <table className="table">
+        {/* head */}
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Favorite Color</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* row 1 */}
+          <tr>
+            <td>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="/tailwind-css-component-profile-2@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold">Hart Hagerty</div>
+                  <div className="text-sm opacity-50">United States</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              Zemlak, Daniel and Leannon
+              <br />
+              <span className="badge badge-ghost badge-sm">
+                Desktop Support Technician
+              </span>
+            </td>
+            <td>Purple</td>
+            <th>
+              <button className="btn btn-ghost btn-xs">details</button>
+            </th>
+          </tr>
+          {/* row 2 */}
+          <tr>
+            <td>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="/tailwind-css-component-profile-3@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold">Brice Swyre</div>
+                  <div className="text-sm opacity-50">China</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              Carroll Group
+              <br />
+              <span className="badge badge-ghost badge-sm">Tax Accountant</span>
+            </td>
+            <td>Red</td>
+            <th>
+              <button className="btn btn-ghost btn-xs">details</button>
+            </th>
+          </tr>
+          {/* row 3 */}
+          <tr>
+            <td>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="/tailwind-css-component-profile-4@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold">Marjy Ferencz</div>
+                  <div className="text-sm opacity-50">Russia</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              Rowe-Schoen
+              <br />
+              <span className="badge badge-ghost badge-sm">
+                Office Assistant I
+              </span>
+            </td>
+            <td>Crimson</td>
+            <th>
+              <button className="btn btn-ghost btn-xs">details</button>
+            </th>
+          </tr>
+          {/* row 4 */}
+          <tr>
+            <td>
+              <div className="flex items-center gap-3">
+                <div className="avatar">
+                  <div className="mask mask-squircle w-12 h-12">
+                    <img
+                      src="/tailwind-css-component-profile-5@56w.png"
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-bold">Yancy Tear</div>
+                  <div className="text-sm opacity-50">Brazil</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              Wyman-Ledner
+              <br />
+              <span className="badge badge-ghost badge-sm">
+                Community Outreach Specialist
+              </span>
+            </td>
+            <td>Indigo</td>
+            <th>
+              <button className="btn btn-ghost btn-xs">details</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
 };
