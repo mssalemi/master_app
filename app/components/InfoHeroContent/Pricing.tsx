@@ -55,26 +55,11 @@ const pricingList: PricingProps[] = [
       "lorem ipsum dolor",
     ],
   },
-  {
-    title: "Enterprise",
-    popular: 0,
-    price: 40,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
-    benefitList: [
-      "10 Team member",
-      "8 GB Storage",
-      "Upto 10 pages",
-      "Priority support",
-      "lorem ipsum dolor",
-    ],
-  },
 ];
 
 export const Pricing = () => {
   return (
-    <section id="pricing" className="container py-24 sm:py-32">
+    <section id="pricing" className="container py-4 sm:py-8">
       <h2 className="text-3xl md:text-4xl font-bold text-center">
         Get
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">

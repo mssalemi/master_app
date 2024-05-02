@@ -19,7 +19,7 @@ import {
 
 export function InfoHeroContent() {
   return (
-    <div>
+    <div className="p-6">
       <Testimonials />
       <Team />
       <Pricing />
@@ -40,61 +40,60 @@ const testimonials: TestimonialProps[] = [
     image: "https://github.com/shadcn.png",
     name: "John Doe React",
     userName: "@john_Doe",
-    comment: "This landing page is awesome!",
+    comment: "Loved the Candito 6-week program! My bench increased by 15 lbs!",
   },
   {
     image: "https://github.com/shadcn.png",
     name: "John Doe React",
     userName: "@john_Doe1",
     comment:
-      "Lorem ipsum dolor sit amet,empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+      "Dropped 10 lbs while doing the 6-week Starting Strength cycle. Amazing results!",
   },
-
   {
     image: "https://github.com/shadcn.png",
     name: "John Doe React",
     userName: "@john_Doe2",
     comment:
-      "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      "The HIIT workouts on this platform are killer! Boosted my stamina tremendously.",
   },
   {
     image: "https://github.com/shadcn.png",
     name: "John Doe React",
     userName: "@john_Doe3",
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      "After following the 12-week hypertrophy guide, my muscle gain is noticeable to everyone. So pumped!",
   },
   {
     image: "https://github.com/shadcn.png",
     name: "John Doe React",
     userName: "@john_Doe4",
     comment:
-      "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud.",
+      "The personalized meal plans and workout routines are perfect! Saw visible changes in just 3 weeks.",
   },
   {
     image: "https://github.com/shadcn.png",
     name: "John Doe React",
     userName: "@john_Doe5",
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Great program for beginners. I feel stronger and more motivated than ever!",
   },
 ];
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="container py-24 sm:py-32">
+    <section id="testimonials" className="container py-16 sm:py-16">
       <h2 className="text-3xl md:text-4xl font-bold">
-        Discover Why
+        Unlock your
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
           {" "}
-          People Love{" "}
+          training potential{" "}
         </span>
-        This Landing Page
+        and maximize your results!
       </h2>
 
       <p className="text-xl text-muted-foreground pt-4 pb-8">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non unde error
-        facere hic reiciendis illo
+        Join the thousands of athletes who have achieved their goals with our
+        training programs.
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:block columns-2  lg:columns-3 lg:gap-6 mx-auto space-y-4 lg:space-y-6">

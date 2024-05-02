@@ -23,8 +23,8 @@ interface SociaNetworkslProps {
 
 const teamList: TeamProps[] = [
   {
-    imageUrl: "https://i.pravatar.cc/150?img=35",
-    name: "Emma Smith",
+    imageUrl: "https://i.postimg.cc/Kvp221Xn/IMG-2673.jpg",
+    name: "Mehdi Salemi",
     position: "Product Manager",
     socialNetworks: [
       { name: "Linkedin", url: "http://linkedin.com" },
@@ -40,8 +40,8 @@ const teamList: TeamProps[] = [
   },
   {
     imageUrl: "https://i.pravatar.cc/150?img=60",
-    name: "John Doe",
-    position: "Tech Lead",
+    name: "Ava Baker",
+    position: "Fun Lead",
     socialNetworks: [
       { name: "Linkedin", url: "http://linkedin.com" },
       {
@@ -55,27 +55,18 @@ const teamList: TeamProps[] = [
     ],
   },
   {
-    imageUrl: "https://i.pravatar.cc/150?img=36",
-    name: "Ashley Ross",
-    position: "Frontend Developer",
-    socialNetworks: [
-      { name: "Linkedin", url: "http://linkedin.com" },
-
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
-  },
-  {
-    imageUrl: "https://i.pravatar.cc/150?img=17",
-    name: "Bruce Rogers",
-    position: "Backend Developer",
+    imageUrl: "https://i.postimg.cc/g2Q9519d/Untitled-design.png",
+    name: "Med Ai",
+    position: "Workout Program Specialist",
     socialNetworks: [
       { name: "Linkedin", url: "http://linkedin.com" },
       {
         name: "Facebook",
         url: "https://www.facebook.com/",
+      },
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/",
       },
     ],
   },
