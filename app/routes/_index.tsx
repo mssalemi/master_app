@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "~/lib/utils";
 
 import type { MetaFunction } from "@remix-run/node";
-import AdtechV1 from "../master-components/Adtech/AdtechV1";
+import { InfoHeroContent } from "../components/InfoHeroContent/InfoHeroContent.js";
 
 import { MainContentV1 } from "../components/MainContent/MainContentV1.js";
 import { QuickCalculator } from "../components/QuickCalculator/QuickCalculator.js";
@@ -49,9 +49,8 @@ export default function Index() {
 
       <MainContentV1 />
       <div className="divider"></div>
-      <AdtechV1>
-        <PopularPrograms />
-      </AdtechV1>
+      <PopularPrograms />
+      <InfoHeroContent />
     </>
   );
 }
