@@ -26,7 +26,7 @@ export function UserTracker() {
           Dashboard
         </h1>
         <div className="flex items-center space-x-2">
-          <Button>Add Workout</Button>
+          <Button>View your Workout Programs</Button>
         </div>
       </div>
       <Tabs
@@ -37,8 +37,9 @@ export function UserTracker() {
         <div className="w-full overflow-x-scroll pb-2">
           <TabsList>
             <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="reports">Reports</TabsTrigger>
+            <TabsTrigger value="analytics">Workout Programs</TabsTrigger>
+            <TabsTrigger value="reports">Analytics</TabsTrigger>
+            <TabsTrigger value="friends">Friends</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
           </TabsList>
         </div>
@@ -47,7 +48,33 @@ export function UserTracker() {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Total Revenue
+                  Strength Level
+                </CardTitle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="h-4 w-4 text-muted-foreground"
+                >
+                  <rect width="20" height="14" x="2" y="5" rx="2" />
+                  <path d="M2 10h20" />
+                </svg>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">Intermediate</div>
+                <p className="text-xs text-muted-foreground">
+                  +7.8 wilks score from last 6 months
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Workouts Completed
                 </CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -63,16 +90,16 @@ export function UserTracker() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$45,231.89</div>
+                <div className="text-2xl font-bold">16</div>
                 <p className="text-xs text-muted-foreground">
-                  +20.1% from last month
+                  +10% from last month
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Subscriptions
+                  Strength Progress
                 </CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -90,41 +117,16 @@ export function UserTracker() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+2350</div>
+                <div className="text-2xl font-bold">+ 22.5</div>
                 <p className="text-xs text-muted-foreground">
-                  +180.1% from last month
+                  +15lbs bench press 1rm from 4 month
                 </p>
               </CardContent>
             </Card>
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Sales</CardTitle>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="h-4 w-4 text-muted-foreground"
-                >
-                  <rect width="20" height="14" x="2" y="5" rx="2" />
-                  <path d="M2 10h20" />
-                </svg>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">+12,234</div>
-                <p className="text-xs text-muted-foreground">
-                  +19% from last month
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Active Now
-                </CardTitle>
+                <CardTitle className="text-sm font-medium">Friends</CardTitle>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -139,9 +141,9 @@ export function UserTracker() {
                 </svg>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+573</div>
+                <div className="text-2xl font-bold">6</div>
                 <p className="text-xs text-muted-foreground">
-                  +201 since last hour
+                  + you and Mate are following the same program
                 </p>
               </CardContent>
             </Card>
