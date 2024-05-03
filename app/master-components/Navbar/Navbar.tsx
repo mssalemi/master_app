@@ -70,8 +70,8 @@ const NavBarLogo = () => {
 
     <Link to="/" className="flex items-center space-x-2">
       <Command className="h-8 w-8" />
-      <h1 className="text-xl font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 text-transparent bg-clip-text bg-300% animate-gradient"> 
-          StrengthTraining.ai
+      <h1 className="text-xl font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 text-transparent bg-clip-text bg-300% animate-gradient">
+        StrengthTraining.ai
       </h1>
     </Link>
   );
@@ -121,7 +121,7 @@ interface User {
 }
 
 const NavBarUserAvatar = ({ user }: { user?: User }) => {
-  const userAvatarImgUrl = !user
+  const userAvatarImgUrl = user
     ? SIGN_IN_USER_AVATAR_IMG_URL
     : GUEST_USER_AVATAR_IMG_URL;
 

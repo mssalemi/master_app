@@ -58,7 +58,7 @@ const pricingList: PricingProps[] = [
   {
     title: "Business",
     popular: 0,
-    price: 10,
+    price: 50,
     description: "Manage your team with advanced permissions and features.",
     buttonText: "Coming Soon",
     benefitList: [
