@@ -81,7 +81,7 @@ const testimonials: TestimonialProps[] = [
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="container py-16 sm:py-16">
+    <section id="testimonials" className="container py-16 sm:py-16 text-center">
       <h2 className="text-3xl md:text-4xl font-bold">
         Unlock your
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
