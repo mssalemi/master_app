@@ -1,8 +1,9 @@
 import React from "react";
+import { QuickCalculator2 } from "./QuickCalculator2";
 
 export function QuickCalculator() {
   return (
-    <div className="card shadow-lg compact side bg-base-200">
+    <div className="card shadow-lg compact side bg-base-200 p-4">
       <div className="card-body">
         <QuickCalculatorForm />
       </div>
@@ -14,16 +15,24 @@ export function QuickCalculatorForm() {
   return (
     <div className="">
       <h2 className="card-title pb-2">One Rep Max Calculator</h2>
-      <div className="md:grid md:grid-cols-[3fr_1fr] gap-4">
+      <div className="md:grid md:grid-cols-[3fr_1fr] gap-4 ">
         <div>
-          <Form />
+          <QuickCalculator2 />
         </div>
-        <div>
+        <div className="flex flex-col gap-2">
           <div className="stats shadow flex justify-center">
             <div className="stat place-items-center">
               <div className="stat-title">1RM</div>
               <div className="stat-value"> - </div>
               <div className="stat-desc">Enter your reps and weight!</div>
+            </div>
+          </div>
+          <div className="stats shadow flex justify-center">
+            <div className="stat place-items-center">
+              <div className="stat-title">EPLEY</div>
+              <div className="stat-desc">
+                See our in-depth calculators for more details!
+              </div>
             </div>
           </div>
         </div>

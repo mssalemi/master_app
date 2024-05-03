@@ -6,6 +6,7 @@ import { InfoHeroContent } from "../components/InfoHeroContent/InfoHeroContent.j
 
 import { MainContentV1 } from "../components/MainContent/MainContentV1.js";
 import { QuickCalculator } from "../components/QuickCalculator/QuickCalculator.js";
+import { QuickCalculator2 } from "../components/QuickCalculator/QuickCalculator2.js";
 import { PopularPrograms } from "../components/PopularPrograms/PopularPrograms.js";
 import FlashyBorder from "~/master-components/FlashBorder/FlashyBorder";
 
@@ -28,7 +29,11 @@ export default function Index() {
       <div className="hero">
         <div className="hero-content text-center flex flex-col md:px-16 md:py-16">
           <h1 className="text-5xl font-bold mb-4 px-8">
-            The workout program you want, the results you need.
+            The{" "}
+            <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
+              workout program
+            </span>{" "}
+            you want, the results you need.
           </h1>
           <p className="mb-4 text-md opacity-80 font-light px-16">
             Discover tailor-made strength programs with our workout program

@@ -70,7 +70,9 @@ const NavBarLogo = () => {
 
     <Link to="/" className="flex items-center space-x-2">
       <Command className="h-8 w-8" />
-      <h1 className="text-xl font-semibold">Strength Training .ai</h1>
+      <h1 className="text-xl font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 text-transparent bg-clip-text bg-300% animate-gradient"> 
+          StrengthTraining.ai
+      </h1>
     </Link>
   );
 };
