@@ -3,6 +3,8 @@ import { Command } from "lucide-react";
 
 const GUEST_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/0y8PvSdz/DALL-E-2024-04-22-21-46-47-Create-a-stylized-simplified-avatar-of-a-guest-user-suitable-for-a-sm.webp";
+const strength_icon =
+  "https://i.postimg.cc/7Zqp0Z72/dbdd34a9-3f1e-4e79-aa88-2d24001d39a3.webp";
 const SIGN_IN_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/V6ZR561n/DALL-E-2024-04-21-08-09-33-Create-a-cartoon-version-of-the-man-s-portrait-with-a-blue-background.webp";
 import { useNavigate, Link } from "@remix-run/react";
@@ -121,9 +123,7 @@ interface User {
 }
 
 const NavBarUserAvatar = ({ user }: { user?: User }) => {
-  const userAvatarImgUrl = user
-    ? SIGN_IN_USER_AVATAR_IMG_URL
-    : GUEST_USER_AVATAR_IMG_URL;
+  const userAvatarImgUrl = user ? SIGN_IN_USER_AVATAR_IMG_URL : strength_icon;
 
   return (
     <>
