@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "../../master-components/shadcn/button";
 import {
   Tabs,
   TabsContent,
@@ -10,6 +9,8 @@ import {
 import { DashboardTab } from "./tabs/DashboardTab";
 import { WorkoutProgramsTab } from "./tabs/WorkoutProgramsTab";
 import { WorkoutsTab } from "./tabs/WorkoutsTab";
+import { AnalyticsTab } from "./tabs/AnalyticsTab";
+import { FriendsTab } from "./tabs/FriendsTab";
 
 export function UserTracker() {
   return (
@@ -19,9 +20,6 @@ export function UserTracker() {
         <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
           Dashboard
         </h1>
-        <div className="flex items-center space-x-2">
-          <Button>View your Workout Programs</Button>
-        </div>
       </div>
       <Tabs
         orientation="vertical"
@@ -35,7 +33,6 @@ export function UserTracker() {
             <TabsTrigger value="programs">Programs</TabsTrigger>
             <TabsTrigger value="reports">Analytics</TabsTrigger>
             <TabsTrigger value="friends">Friends</TabsTrigger>
-            <TabsTrigger value="notifications">Notifications</TabsTrigger>
           </TabsList>
         </div>
         <TabsContent value="overview" className="space-y-4">
@@ -46,6 +43,12 @@ export function UserTracker() {
         </TabsContent>
         <TabsContent value="programs" className="space-y-4">
           <WorkoutProgramsTab />
+        </TabsContent>
+        <TabsContent value="reports" className="space-y-4">
+          <AnalyticsTab />
+        </TabsContent>
+        <TabsContent value="friends" className="space-y-4">
+          <FriendsTab />
         </TabsContent>
       </Tabs>
     </div>
