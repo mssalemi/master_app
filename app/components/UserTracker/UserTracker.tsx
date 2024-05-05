@@ -9,6 +9,7 @@ import {
 
 import { DashboardTab } from "./tabs/DashboardTab";
 import { WorkoutProgramsTab } from "./tabs/WorkoutProgramsTab";
+import { WorkoutsTab } from "./tabs/WorkoutsTab";
 
 export function UserTracker() {
   return (
@@ -30,7 +31,8 @@ export function UserTracker() {
         <div className="w-full overflow-x-scroll pb-2">
           <TabsList>
             <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="workout-programs">Workout Programs</TabsTrigger>
+            <TabsTrigger value="workouts">Workouts</TabsTrigger>
+            <TabsTrigger value="programs">Programs</TabsTrigger>
             <TabsTrigger value="reports">Analytics</TabsTrigger>
             <TabsTrigger value="friends">Friends</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
@@ -39,7 +41,10 @@ export function UserTracker() {
         <TabsContent value="overview" className="space-y-4">
           <DashboardTab />
         </TabsContent>
-        <TabsContent value="workout-programs" className="space-y-4">
+        <TabsContent value="workouts" className="space-y-4">
+          <WorkoutsTab />
+        </TabsContent>
+        <TabsContent value="programs" className="space-y-4">
           <WorkoutProgramsTab />
         </TabsContent>
       </Tabs>
