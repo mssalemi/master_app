@@ -14,7 +14,7 @@ const STRENGTH_WORKOUT_ICON_URL =
 export function MainContentV1() {
   return (
     <>
-      <div className="flex justify-center items-center p-4">
+      <div className="flex justify-center items-center px-8 md:py-8">
         <div className="card-body">
           <Description />
           <WorkoutProgramsTable />

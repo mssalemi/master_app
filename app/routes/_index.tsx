@@ -25,9 +25,9 @@ const DEFUALT_IMG =
 
 export default function Index() {
   return (
-    <>
-      <div className="hero">
-        <div className="hero-content text-center flex flex-col md:px-16 md:py-16">
+    <Layout>
+      <div className="">
+        <div className="text-center flex flex-col md:px-16 md:py-16">
           <h1 className="text-5xl font-bold mb-4 px-8">
             The{" "}
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
@@ -35,7 +35,7 @@ export default function Index() {
             </span>{" "}
             you want, the results you need.
           </h1>
-          <p className="mb-4 text-md opacity-80 font-light px-16">
+          <p className="mb-4 text-md opacity-80 font-light px-4">
             Discover tailor-made strength programs with our workout program
             tracker—perfect for enhancing key lifts and overall power. Start
             with AI-generated powerlifting templates or calculate your 1 rep max
@@ -56,14 +56,18 @@ export default function Index() {
       <div className="divider"></div>
       <PopularPrograms />
       <InfoHeroContent />
-    </>
+    </Layout>
   );
 }
 
 const HeroButton = ({ title }: { title: string }) => {
   return (
     <FlashyBorder>
-      <button className="btn px-6 py-2">{title}</button>
+      <button className="btn px-2 py-2">{title}</button>
     </FlashyBorder>
   );
+};
+
+const Layout = ({ children }) => {
+  return <div className="flex flex-col px-16 py-8">{children}</div>;
 };

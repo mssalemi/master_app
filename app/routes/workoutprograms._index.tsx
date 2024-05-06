@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { WORKOUT_PROGRAMS_EXAMPLE } from "../lib/mehdi_bench_template";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,5 +13,6 @@ export const meta: MetaFunction = () => {
 };
 
 export default function WorkoutProgramsPage() {
-  return <>WorkoutPrograms</>;
+  console.log(WORKOUT_PROGRAMS_EXAMPLE);
+  return <>WorkoutProgramsIndex</>;
 }
