@@ -11,7 +11,9 @@ stronger.
 `;
 
 const PHILOSOPHY = `
-The Candito 5 Week Bench Program is designed around a unique philosophy that focuses on both volume and intensity over a 5-week cycle to maximize strength gains. Here's how the program is structured:
+The Candito 5 Week Bench Program is designed around a unique philosophy 
+that focuses on both volume and intensity over a 5-week cycle to maximize 
+strength gains. Here's how the program is structured:
 `;
 
 const WEEKS_OVERVIEW: {
@@ -27,7 +29,7 @@ const WEEKS_OVERVIEW: {
     description: `Intensity Phase - As we transition into the third and fourth weeks, the frequency of workouts decreases to twice a week, allowing for the introduction of heavier weights. This phase focuses on increasing strength by challenging your muscles with high-intensity lifts, ensuring significant strength development.`,
   },
   {
-    title: "Week 3",
+    title: "Week 5",
     description: `Test Week - The final week serves as a testing phase where you can choose to either perform as many reps as possible (AMRAP) or attempt a one-rep max (1RM). This week is crucial for assessing progress and setting benchmarks for future training.`,
   },
 ];

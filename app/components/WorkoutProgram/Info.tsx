@@ -67,11 +67,11 @@ function WorkoutProgramTemplateDisplay({
       <p className="mt-2">{WORKOUT_PROGRAMS_EXAMPLE.description.whyChoose}</p>
 
       <h2 className="text-2xl font-bold mt-4">
-        Introducing the {programTemplate.title}
+        Philosophy: {programTemplate.title}
       </h2>
       <p>{WORKOUT_PROGRAMS_EXAMPLE.description.philosophy}</p>
 
-      <h2 className="text-2xl font-bold mt-4">Week Overview</h2>
+      <h2 className="text-2xl font-bold mt-4">Week Overview:</h2>
       <ul className="list-disc pl-5">
         {WORKOUT_PROGRAMS_EXAMPLE.description.weekOverview.map(
           (item, index) => (
