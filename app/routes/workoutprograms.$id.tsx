@@ -4,8 +4,11 @@ import React from "react";
 function WorkoutProgramPage() {
   return (
     <Layout>
-      <h2>Workout Program Individual Page</h2>
-      <WorkoutProgramInfo />
+      <div className="container flex flex py-8">
+        <div className="flex flex-col space-y-4 p-4">
+          <WorkoutProgramInfo />
+        </div>
+      </div>
     </Layout>
   );
 }
