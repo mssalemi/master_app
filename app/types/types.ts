@@ -1,5 +1,6 @@
 export interface ExerciseType {
   exercise: string;
+  name: string;
   sets: number;
   reps: number;
   percentage1RM?: number;

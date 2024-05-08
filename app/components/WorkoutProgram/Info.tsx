@@ -1,6 +1,13 @@
 import React from "react";
 import { WORKOUT_PROGRAMS_EXAMPLE } from "../../lib/mehdi_bench_template";
-import { WorkoutProgramTemplateType } from "../../types/types";
+import { WeekType, WorkoutProgramTemplateType } from "../../types/types";
+import { WeekDisplay } from "./components/WeekDisplay";
+
+import {
+  Layout,
+  LayoutBody,
+  LayoutHeader,
+} from "../../master-components/shadcn/layout";
 
 export function WorkoutProgramInfo() {
   const workoutProgram: WorkoutProgramTemplateType =
@@ -81,6 +88,23 @@ function WorkoutProgramTemplateDisplay({
           )
         )}
       </ul>
+
+      <p className="mt-4">{WORKOUT_PROGRAMS_EXAMPLE.description.closing}</p>
+
+      <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+        <span className="font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 text-transparent bg-clip-text">
+          Program Overview
+        </span>
+      </h2>
+
+      <h4 className="text-2xl md:text-4xl font-bold tracking-tighter mb-4">
+        Weeks
+      </h4>
+      <div className="flex flex-col">
+        {programTemplate.weeks.map((week, index) => (
+          <WeekDisplay key={index} week={week} />
+        ))}
+      </div>
     </div>
   );
 }

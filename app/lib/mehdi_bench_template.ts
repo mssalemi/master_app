@@ -87,6 +87,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 10,
                 percentage1RM: 0.5,
                 rounding: undefined,
+                name: "Bench Press",
               },
               {
                 exercise: "Bench Press",
@@ -94,6 +95,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 10,
                 percentage1RM: 0.675,
                 rounding: undefined,
+                name: "Bench Press",
               },
               {
                 exercise: "Bench Press",
@@ -101,6 +103,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 8,
                 percentage1RM: 0.7,
                 rounding: undefined,
+                name: "Bench Press",
               },
               {
                 exercise: "Bench Press",
@@ -108,6 +111,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 6,
                 percentage1RM: 0.775,
                 rounding: undefined,
+                name: "Bench Press",
               },
             ],
           },
@@ -121,6 +125,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 10,
                 percentage1RM: 0.5,
                 rounding: undefined,
+                name: "Bench Press",
               },
               {
                 exercise: "Bench Press",
@@ -128,6 +133,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 10,
                 percentage1RM: 0.675,
                 rounding: undefined,
+                name: "Bench Press",
               },
               {
                 exercise: "Bench Press",
@@ -135,6 +141,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 8,
                 percentage1RM: 0.7,
                 rounding: undefined,
+                name: "Bench Press",
               },
               {
                 exercise: "Bench Press",
@@ -142,6 +149,7 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
                 reps: 6,
                 percentage1RM: 0.775,
                 rounding: undefined,
+                name: "Bench Press",
               },
               ...bench_accessory,
             ],
