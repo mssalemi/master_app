@@ -6,6 +6,7 @@ export interface ExerciseType {
   percentage1RM?: number;
   rounding?: string;
   modifier?: number;
+  units?: string;
 }
 
 export interface DayType {

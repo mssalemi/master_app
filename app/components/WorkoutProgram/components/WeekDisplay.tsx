@@ -22,17 +22,32 @@ export function WeekDisplay({ week }: { week: WeekType }) {
       desc: (
         <ul>
           {day.exercises.map((exercise) => (
-            <li key={exercise.name}>
-              <p>
-                {exercise.name} {exercise.sets} x {exercise.reps}
-                {exercise.percentage1RM
-                  ? " @ " + exercise.percentage1RM * 100
-                  : ""}{" "}
-                %
-                {exercise.modifier
-                  ? `${exercise.modifier > 0 ? "+" : ""}${exercise.modifier}`
-                  : ""}
-              </p>
+            <li className="" key={exercise.name}>
+              {exercise.name}{" "}
+              <span className="font-bold">
+                {exercise.sets} x {exercise.reps}
+              </span>
+              {exercise.percentage1RM && (
+                <span>
+                  {" "}
+                  @{" "}
+                  <span className="font-bold">
+                    {Math.round(exercise.percentage1RM * 100)}
+                    <span className="text-gray-700">%</span>
+                  </span>
+                </span>
+              )}
+              {exercise.modifier && (
+                <span
+                  className={`font-bold ${
+                    exercise.modifier < 0 ? "text-red-500" : "text-green-500"
+                  }`}
+                >
+                  {exercise.modifier > 0 ? "+" : ""}
+                  {exercise.modifier}
+                </span>
+              )}
+              {}
             </li>
           ))}
         </ul>
@@ -48,8 +63,7 @@ export function WeekDisplay({ week }: { week: WeekType }) {
         <h4 className="text-md md:text-2xl font-bold tracking-tighter mb-4">
           Week {week.week}: {week.title}
         </h4>
-        <p className="line-clamp-6 text-gray-700">{week.description}</p>
-        <Separator className="shadow" />
+        <p className="line-clamp-6">{week.description}</p>
         <ul className="no-scrollbar grid gap-4 overflow-y-scroll pb-16 pt-4 md:grid-cols-2 lg:grid-cols-3">
           {workouts.map((workout) => (
             <WorkoutView
@@ -68,10 +82,10 @@ export function WeekDisplay({ week }: { week: WeekType }) {
 
 const WorkoutView = ({ name, logo, connected, desc }: WorkoutViewProps) => {
   return (
-    <li key={name} className="rounded-lg border p-4 hover:shadow-md">
-      <div className="mb-8 flex items-center justify-between">
+    <li key={name} className="rounded-lg border p-4 hover:shadow-md ">
+      <div className="mb-4 flex items-center justify-between">
         <div
-          className={`flex size-10 items-center justify-center rounded-lg bg-muted p-2`}
+          className={`flex size-10 items-center justify-center rounded-lg bg-muted`}
         >
           {logo}
         </div>
@@ -88,8 +102,8 @@ const WorkoutView = ({ name, logo, connected, desc }: WorkoutViewProps) => {
         </Button>
       </div>
       <div>
-        <h2 className="mb-1 font-semibold">{name}</h2>
-        <p className="line-clamp-6 text-gray-500">{desc}</p>
+        <h2 className="mb-1 font-semibold text-lg">{name}</h2>
+        <p className="line-clamp-6">{desc}</p>
       </div>
     </li>
   );
