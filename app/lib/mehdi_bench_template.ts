@@ -2,6 +2,323 @@ import { bench_accessory } from "./bench";
 
 import { WorkoutProgramTemplateType } from "../types/types";
 
+const week1 = {
+  week: 1,
+  title: "The Beginning",
+  description: "Reps, reps, and more reps.",
+  days: [
+    {
+      day: 1,
+      title: "The Start, Round 1",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 10,
+          percentage1RM: 0.5,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 10,
+          percentage1RM: 0.675,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 8,
+          percentage1RM: 0.7,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 6,
+          percentage1RM: 0.775,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+      ],
+    },
+    {
+      day: 2,
+      title: "The Start, Round 2",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 10,
+          percentage1RM: 0.5,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 10,
+          percentage1RM: 0.675,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 8,
+          percentage1RM: 0.7,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 6,
+          percentage1RM: 0.775,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        ...bench_accessory,
+      ],
+    },
+    {
+      day: 3,
+      title: "Amrap",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          sets: 1,
+          reps: 15,
+          percentage1RM: 0.8,
+          rounding: undefined,
+          name: "Bench Press",
+        },
+        ...bench_accessory,
+      ],
+    },
+  ],
+};
+
+const week2 = {
+  week: 2,
+  title: "Intensification Phase",
+  description:
+    "Increasing intensity with higher percentages of 1RM to build strength.",
+  days: [
+    {
+      day: 1,
+      title: "Bench Day 1",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 10,
+          percentage1RM: 0.725,
+          rounding: undefined,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 8,
+          percentage1RM: 0.775,
+          rounding: undefined,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 6,
+          percentage1RM: 0.8,
+          rounding: "up",
+          modifier: 5,
+        },
+      ],
+    },
+    {
+      day: 2,
+      title: "Bench Day 2",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 10,
+          percentage1RM: 0.725,
+          rounding: undefined,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 8,
+          percentage1RM: 0.775,
+          rounding: undefined,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 6,
+          percentage1RM: 0.8,
+          rounding: "up",
+          modifier: 5,
+        },
+      ],
+    },
+    {
+      day: 3,
+      title: "Bench Day 3",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 15,
+          percentage1RM: 0.8,
+          rounding: "up",
+          modifier: -5,
+        },
+      ],
+    },
+  ],
+};
+
+const week3 = {
+  week: 3,
+  title: "Peak Phase",
+  description:
+    "Peaking intensity with fewer reps and increased load to maximize strength gains.",
+  days: [
+    {
+      day: 1,
+      title: "Bench Day 1",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 3, // 3 sets as specified
+          reps: 15,
+          percentage1RM: 0.85, // 85% of 1RM
+          rounding: undefined,
+        },
+      ],
+    },
+    {
+      day: 2,
+      title: "Bench Day 2",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1, // Assuming 1 set is required here, as not specified
+          reps: 15,
+          percentage1RM: 0.85,
+          rounding: undefined,
+          modifier: 5, // Add 5 lbs as per your instruction
+        },
+      ],
+    },
+  ],
+};
+
+const week4 = {
+  week: 4,
+  title: "Preparation Phase",
+  description:
+    "Preparing for maximal lifts by increasing load and decreasing volume.",
+  days: [
+    {
+      day: 1,
+      title: "Bench Day 1",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 3,
+          percentage1RM: 0.875,
+          rounding: "down",
+          modifier: -5,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 3,
+          percentage1RM: 0.9,
+          rounding: "down",
+          modifier: -5,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 3,
+          percentage1RM: 0.9,
+          rounding: undefined,
+        },
+      ],
+    },
+    {
+      day: 2,
+      title: "Bench Day 2",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 3,
+          percentage1RM: 0.875,
+          rounding: undefined,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 2,
+          percentage1RM: 0.9,
+          rounding: undefined,
+        },
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 15,
+          percentage1RM: 0.95,
+          rounding: undefined,
+        },
+      ],
+    },
+  ],
+};
+
+const week5 = {
+  week: 5,
+  title: "Testing Phase",
+  description: "Testing strength gains with near-maximal lifts.",
+  days: [
+    {
+      day: 1,
+      title: "Bench Day 1",
+      exercises: [
+        {
+          exercise: "Bench Press",
+          name: "Bench Press",
+          sets: 1,
+          reps: 15,
+          percentage1RM: 0.975,
+          rounding: undefined,
+        },
+      ],
+    },
+  ],
+};
+
 const WHY_CHOOSE = `
 In the world of strength training, too many programs complicate what
 should be simple—getting stronger. That’s why Candito’s 5-Week Bench
@@ -71,105 +388,6 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
     title: "Mehdi 5 Week Bench Cycle",
     description:
       "The Mehdi 5 Week Bench Cycle is a 5 week training program built using periodization. It is built to help you increase your bench press strength and muscle mass.",
-    weeks: [
-      {
-        week: 1,
-        title: "The Beginning",
-        description: "Reps, reps, and more reps.",
-        days: [
-          {
-            day: 1,
-            title: "The Start, Round 1",
-            exercises: [
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 10,
-                percentage1RM: 0.5,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 10,
-                percentage1RM: 0.675,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 8,
-                percentage1RM: 0.7,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 6,
-                percentage1RM: 0.775,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-            ],
-          },
-          {
-            day: 2,
-            title: "The Start, Round 2",
-            exercises: [
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 10,
-                percentage1RM: 0.5,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 10,
-                percentage1RM: 0.675,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 8,
-                percentage1RM: 0.7,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 6,
-                percentage1RM: 0.775,
-                rounding: undefined,
-                name: "Bench Press",
-              },
-              ...bench_accessory,
-            ],
-          },
-          {
-            day: 3,
-            title: "Amrap",
-            exercises: [
-              {
-                exercise: "Bench Press",
-                sets: 1,
-                reps: 15,
-                percentage1RM: 0.8,
-                rounding: undefined,
-              },
-              ...bench_accessory,
-            ],
-          },
-        ],
-      },
-    ],
+    weeks: [week1, week2, week3, week4, week5],
   },
 };

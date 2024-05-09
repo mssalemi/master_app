@@ -9,8 +9,9 @@ import {
 import { DataTable } from "../../../master-components/shadcn/data-table";
 import { columns } from "../../../master-components/shadcn/columns";
 import { Button } from "../../../master-components/shadcn/button";
-import { Separator } from "../../../master-components/shadcn/separator";
+
 import { apps } from "./apps";
+import { Separator } from "../../../master-components/shadcn/separator";
 
 export function WorkoutProgramsTab() {
   return (
@@ -22,7 +23,6 @@ export function WorkoutProgramsTab() {
 
       <LayoutBody className="flex flex-col" fixedHeight>
         <div>
-          <Separator className="shadow" />
           <ul className="no-scrollbar grid gap-4 overflow-y-scroll pb-16 pt-4 md:grid-cols-2 lg:grid-cols-3">
             {apps.map((app) => (
               <li

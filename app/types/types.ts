@@ -5,6 +5,7 @@ export interface ExerciseType {
   reps: number;
   percentage1RM?: number;
   rounding?: string;
+  modifier?: number;
 }
 
 export interface DayType {

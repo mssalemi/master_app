@@ -27,8 +27,11 @@ export function WeekDisplay({ week }: { week: WeekType }) {
                 {exercise.name} {exercise.sets} x {exercise.reps}
                 {exercise.percentage1RM
                   ? " @ " + exercise.percentage1RM * 100
-                  : ""}
+                  : ""}{" "}
                 %
+                {exercise.modifier
+                  ? `${exercise.modifier > 0 ? "+" : ""}${exercise.modifier}`
+                  : ""}
               </p>
             </li>
           ))}
