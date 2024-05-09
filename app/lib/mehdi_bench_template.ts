@@ -1,336 +1,25 @@
-import { bench_accessory } from "./bench";
-
 import { WorkoutProgramTemplateType } from "../types/types";
+import { CANDITO_WEEKS } from "./candito_weeks";
+import { DIFFICULTY_LEVELS, GOALS } from "./difficulty_levels";
 
-const week1 = {
-  week: 1,
-  title: "The Beginning",
-  description: "Reps, reps, and more reps.",
-  days: [
-    {
-      day: 1,
-      title: "The Start, Round 1",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 10,
-          percentage1RM: 0.5,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 10,
-          percentage1RM: 0.675,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 8,
-          percentage1RM: 0.7,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 6,
-          percentage1RM: 0.775,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-      ],
-    },
-    {
-      day: 2,
-      title: "The Start, Round 2",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 10,
-          percentage1RM: 0.5,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 10,
-          percentage1RM: 0.675,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 8,
-          percentage1RM: 0.7,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 6,
-          percentage1RM: 0.775,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        ...bench_accessory,
-      ],
-    },
-    {
-      day: 3,
-      title: "Amrap",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          sets: 1,
-          reps: 15,
-          percentage1RM: 0.8,
-          rounding: undefined,
-          name: "Bench Press",
-        },
-        ...bench_accessory,
-      ],
-    },
-  ],
-};
+const WORKOUT_PROGRAM_TITLE =
+  "MedxMan's 5 Week Candito Bench Dupe - Express Edition";
 
-const week2 = {
-  week: 2,
-  title: "Intensification Phase",
-  description:
-    "Increasing intensity with higher percentages of 1RM to build strength.",
-  days: [
-    {
-      day: 1,
-      title: "Bench Day 1",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 10,
-          percentage1RM: 0.725,
-          rounding: undefined,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 8,
-          percentage1RM: 0.775,
-          rounding: undefined,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 6,
-          percentage1RM: 0.8,
-          rounding: "up",
-          modifier: 5,
-        },
-      ],
-    },
-    {
-      day: 2,
-      title: "Bench Day 2",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 10,
-          percentage1RM: 0.725,
-          rounding: undefined,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 8,
-          percentage1RM: 0.775,
-          rounding: undefined,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 6,
-          percentage1RM: 0.8,
-          rounding: "up",
-          modifier: 5,
-        },
-      ],
-    },
-    {
-      day: 3,
-      title: "Bench Day 3",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 15,
-          percentage1RM: 0.8,
-          rounding: "up",
-          modifier: -5,
-        },
-      ],
-    },
-  ],
-};
+const AUTHOR = "MedxMan";
 
-const week3 = {
-  week: 3,
-  title: "Peak Phase",
-  description:
-    "Peaking intensity with fewer reps and increased load to maximize strength gains.",
-  days: [
-    {
-      day: 1,
-      title: "Bench Day 1",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 3, // 3 sets as specified
-          reps: 15,
-          percentage1RM: 0.85, // 85% of 1RM
-          rounding: undefined,
-        },
-      ],
-    },
-    {
-      day: 2,
-      title: "Bench Day 2",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1, // Assuming 1 set is required here, as not specified
-          reps: 15,
-          percentage1RM: 0.85,
-          rounding: undefined,
-          modifier: 5, // Add 5 lbs as per your instruction
-        },
-      ],
-    },
-  ],
-};
-
-const week4 = {
-  week: 4,
-  title: "Preparation Phase",
-  description:
-    "Preparing for maximal lifts by increasing load and decreasing volume.",
-  days: [
-    {
-      day: 1,
-      title: "Bench Day 1",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 3,
-          percentage1RM: 0.875,
-          rounding: "down",
-          modifier: -5,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 3,
-          percentage1RM: 0.9,
-          rounding: "down",
-          modifier: -5,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 3,
-          percentage1RM: 0.9,
-          rounding: undefined,
-        },
-      ],
-    },
-    {
-      day: 2,
-      title: "Bench Day 2",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 3,
-          percentage1RM: 0.875,
-          rounding: undefined,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 2,
-          percentage1RM: 0.9,
-          rounding: undefined,
-        },
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 15,
-          percentage1RM: 0.95,
-          rounding: undefined,
-        },
-      ],
-    },
-  ],
-};
-
-const week5 = {
-  week: 5,
-  title: "Testing Phase",
-  description: "Testing strength gains with near-maximal lifts.",
-  days: [
-    {
-      day: 1,
-      title: "Bench Day 1",
-      exercises: [
-        {
-          exercise: "Bench Press",
-          name: "Bench Press",
-          sets: 1,
-          reps: 15,
-          percentage1RM: 0.975,
-          rounding: undefined,
-        },
-      ],
-    },
-  ],
-};
+const PROGRAM_FOCUS = ["Bench Press"];
 
 const WHY_CHOOSE = `
-In the world of strength training, too many programs complicate what
-should be simple—getting stronger. That’s why Candito’s 5-Week Bench
-Program strips it back to basics, offering a clear, concise plan that
-lets you focus on what really matters: lifting more and getting
-stronger.
+Remember the glory days when “former athlete” meant something a tad more glorious than it does now? Candito’s 5-Week Bench Program is your ticket back to those days, but without the all-day gym marathons. Designed for us, the busy has-beens who still want to look jacked and lift heavy, this program cuts through the fluff. It’s all about getting stronger and reclaiming that jaw-dropping physique with just 30-minute workouts, 3-5 times a week. Because let’s be real, who has time to spend all day in the gym anymore? Bench more, lift more, and maybe even flex in the mirror a bit—it’s time to turn those “back in my day” stories into “look at me now” results.
 `;
 
 const PHILOSOPHY = `
-The Candito 5 Week Bench Program is designed around a unique philosophy 
+The MedxMan x Candito Hybrid 5 Week Bench Program is designed around a unique philosophy 
 that focuses on both volume and intensity over a 5-week cycle to maximize 
-strength gains. Here's how the program is structured:
+strength gains. The program is aimed for busy folks wants to spend 30 minutes in the gym. 
+This program can help keep consistent gains for cycle after cycle. Heck, 
+I'm mid 30's now and I'm blasting past my peak... with only 30 minutes workouts. 
+Here's how the program is structured:
 `;
 
 const WEEKS_OVERVIEW: {
@@ -350,6 +39,16 @@ const WEEKS_OVERVIEW: {
     description: `Test Week - The final week serves as a testing phase where you can choose to either perform as many reps as possible (AMRAP) or attempt a one-rep max (1RM). This week is crucial for assessing progress and setting benchmarks for future training.`,
   },
 ];
+
+const CLOSING =
+  "This program is designed to help you increase your bench press strength and muscle mass.";
+
+const TEMPLATE_DESCRIPTION = `
+The MedxMan's 5 Week Bench Dupe is a modified version of Candito's 5 Week Bench Program,
+tailored to help you increase your bench press strength and muscle mass. The program is
+structured around a unique philosophy that focuses on both volume and intensity over a
+5-week cycle to maximize strength gains.
+`;
 
 export const WORKOUT_PROGRAMS_EXAMPLE: {
   id: string;
@@ -371,23 +70,21 @@ export const WORKOUT_PROGRAMS_EXAMPLE: {
   programTemplate: WorkoutProgramTemplateType;
 } = {
   id: "canditoxmed001",
-  title: "5's Week Bench Cycle",
+  title: WORKOUT_PROGRAM_TITLE,
   description: {
     whyChoose: WHY_CHOOSE,
     philosophy: PHILOSOPHY,
     weekOverview: WEEKS_OVERVIEW,
-    closing:
-      "This program is designed to help you increase your bench press strength and muscle mass.",
+    closing: CLOSING,
   },
-  creator: "Jonnie Candito",
-  duration: "6 weeks",
-  difficulty: "Intermediate",
-  goal: "Strength",
-  focus: ["Bench Press"],
+  creator: AUTHOR,
+  duration: `${CANDITO_WEEKS.length} weeks`,
+  difficulty: DIFFICULTY_LEVELS[2],
+  goal: GOALS[0],
+  focus: PROGRAM_FOCUS,
   programTemplate: {
-    title: "Mehdi 5 Week Bench Cycle",
-    description:
-      "The Mehdi 5 Week Bench Cycle is a 5 week training program built using periodization. It is built to help you increase your bench press strength and muscle mass.",
-    weeks: [week1, week2, week3, week4, week5],
+    title: WORKOUT_PROGRAM_TITLE,
+    description: TEMPLATE_DESCRIPTION,
+    weeks: CANDITO_WEEKS,
   },
 };
