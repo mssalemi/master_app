@@ -1,7 +1,6 @@
-import { WeekType, WorkoutProgramTemplateType } from "../../../types/types";
+import { WeekType } from "../../../types/types";
 import { IconBuildingFortress } from "@tabler/icons-react";
 
-import { Separator } from "../../../master-components/shadcn/separator";
 import { Button } from "../../../master-components/shadcn/button";
 
 interface WorkoutViewProps {
