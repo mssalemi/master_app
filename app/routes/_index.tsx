@@ -17,6 +17,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+// Maybe use this for bettter nested routing: https://remix.run/docs/en/main/discussion/routes
+
 const BENCH_PRESS_IMAGE =
   "https://i.postimg.cc/Hs3sQLdK/DALL-E-2024-04-21-20-52-28-A-realistic-gym-setting-featuring-a-bench-press-station-with-a-blue-hue.webp";
 

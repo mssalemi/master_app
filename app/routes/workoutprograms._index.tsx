@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "../master-components/shadcn/table";
 
-import { Link } from "@remix-run/react";
+import { Outlet, Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -45,6 +45,7 @@ export default function WorkoutProgramsPage() {
         <div>
           <WorkoutProgramsTable />
         </div>
+        <Outlet />
       </div>
     </Layout>
   );
@@ -65,6 +66,7 @@ const invoices = [
   },
 ];
 const WorkoutProgramsTable = () => {
+  console.log("go gere");
   return (
     <Table>
       <TableCaption>A list of workout programs.</TableCaption>
