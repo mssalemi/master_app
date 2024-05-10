@@ -73,7 +73,7 @@ const defaultValues: Partial<AccountFormValues> = {
 // Metadata for the settings page
 export const meta: MetaFunction = () => {
   return [
-    { title: "Account Settings" },
+    { title: "Profile Settings" },
     {
       name: "description",
       content: "Manage your account and application settings.",
@@ -86,10 +86,10 @@ export default function SettingsPage() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h3 className="text-lg font-medium">Account</h3>
+          <h3 className="text-lg font-medium">Profile Settings</h3>
           <p className="text-sm text-muted-foreground">
-            Update your account settings. Set your preferred language and
-            timezone.
+            Update your profile settings. Set user profile settings including
+            preferred units, exercises and timezone.
           </p>
         </div>
         <Separator />
