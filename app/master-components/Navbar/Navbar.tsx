@@ -85,7 +85,7 @@ const NavBarDropDownMenu = ({ user }: { user?: User }) => {
     setMenuOpen(false);
   };
 
-  const listItems = !user
+  const listItems = user
     ? [
         { title: "Profile", link: "/profile" },
         { title: "Settings", link: "/settings" },

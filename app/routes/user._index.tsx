@@ -12,5 +12,9 @@ export const meta: MetaFunction = () => {
 };
 
 export default function UserPage() {
-  return <>User Page</>;
+  return <Layout>User Page</Layout>;
 }
+
+const Layout = ({ children }) => {
+  return <div className="flex flex-col px-16 py-8">{children}</div>;
+};
