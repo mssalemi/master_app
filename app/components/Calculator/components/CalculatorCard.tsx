@@ -1,3 +1,5 @@
+import { Form } from "@remix-run/react";
+
 import { useState, useEffect } from "react";
 import { FORMULA_TYPE } from "../types";
 
@@ -26,7 +28,7 @@ export const OneRepCalculator = ({
 
   return (
     <div className="card-compact bg-base-100 shadow-xl">
-      <form onSubmit={handleSubmit}>
+      <Form action="/calculator" method="post">
         <div className="card-body">
           <div className="flex flex-col md:flex-row md:justify-between gap-4">
             <div className="w-full md:w-2/3">
@@ -49,10 +51,15 @@ export const OneRepCalculator = ({
                 value={0}
                 compact
               />
+              <div className="mt-4">
+                <button type="submit" className="btn btn-primary">
+                  {buttonTitle}
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </form>
+      </Form>
     </div>
   );
 };
