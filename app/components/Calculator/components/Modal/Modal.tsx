@@ -1,11 +1,21 @@
 import { Popover } from "./Popover";
+import { FORMULA_TYPE } from "../../types";
 
-export const Modal = () => {
+interface ModalProps {
+  handleFormulaChange: React.Dispatch<React.SetStateAction<FORMULA_TYPE>>;
+  currentFormula: FORMULA_TYPE;
+}
+
+export const Modal = ({ handleFormulaChange, currentFormula }: ModalProps) => {
   return (
     <>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <ActivatePopoverButton />
-      <Popover />
+      <Popover
+        close={() => document.getElementById("my_modal_1").close()}
+        handleFormulaChange={handleFormulaChange}
+        currentFormula={currentFormula}
+      />
     </>
   );
 };
