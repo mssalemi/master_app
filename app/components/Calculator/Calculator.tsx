@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ResultsCard, RepMaxesTable, CalculatorCard } from "./components";
+import { ResultsCard, RepMaxesTable, OneRepCalculator } from "./components";
 
 const defaultDesc =
   "This is using the EPLEY Formula. Enter your weight and reps to calculate your 1RM.";
@@ -10,7 +10,7 @@ export const Calculator = () => {
     <>
       <div className="flex flex-col">
         <div className="stats">
-          <CalculatorCard
+          <OneRepCalculator
             title={"Calculator your 1RepMax"}
             description={defaultDesc}
             buttonTitle={"Calculator"}
@@ -20,19 +20,6 @@ export const Calculator = () => {
             }}
           />
         </div>
-        {displayRepMaxPercentages && (
-          <div className="py-8">
-            <div className="bg-base-100 flex flex-col items-start p-8">
-              <div>
-                <h2 className="py-4">Repetition Maxes</h2>
-              </div>
-
-              <div className="flex flex-rows justify-center">
-                <RepMaxesTable />
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
