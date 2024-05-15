@@ -7,6 +7,8 @@ import {
 } from "@remix-run/react";
 ``;
 
+import { Analytics } from "@vercel/analytics/react";
+
 import "./styles.css";
 
 import { Navbar } from "./master-components/";
@@ -24,6 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <Navbar />
         {children}
+        <Analytics />
         <ScrollRestoration />
         <Scripts />
         <Footer />
