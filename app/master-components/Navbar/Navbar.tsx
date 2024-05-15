@@ -10,36 +10,87 @@ const SIGN_IN_USER_AVATAR_IMG_URL =
 import { useNavigate, Link } from "@remix-run/react";
 
 export function Navbar() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!isMenuOpen);
+  const user = true;
+
   const navBarItems = [
     { title: "Home", link: "/" },
-    { title: "Calculator", link: "/calculator" },
+    {
+      title: "Calculator",
+      link: "/calculator",
+      submenuItems: [
+        {
+          title: "1RM Calculator",
+          link: "/calculator",
+        },
+        {
+          title: "Wilks",
+          link: "/calculator",
+        },
+      ],
+    },
     { title: "Workout Programs", link: "/workoutprograms" },
     { title: "Tracker", link: "/tracker" },
   ];
+
+  const userListItems = user
+    ? [
+        { title: "Profile", link: "/profile" },
+        { title: "Settings", link: "/settings" },
+        { title: "Contact Us", link: "/contact-us" },
+        { title: "Logout", link: "/" },
+      ]
+    : [
+        { title: "Login", link: "/login" },
+        { title: "Sign Up", link: "/user/create" },
+        { title: "Contact Us", link: "/contact-us" },
+      ];
+
   return (
     <>
       <div className="navbar px-1">
-        {/* Logo Section - Flex 1 to grow and take equal space */}
-        <div className="flex-1 flex justify-start">
-          {" "}
-          {/* Modified: justify-end */}
+        <div className="flex-1 flex justify-between lg:justify-start">
           <NavBarLogo />
+          <button
+            className="lg:hidden btn btn-square btn-ghost"
+            onClick={toggleMenu}
+          >
+            <Command />
+          </button>
         </div>
-
-        {/* Navigation Links - Middle section grows on larger screens */}
-        <div className="lg:flex items-center justify-center space-x-2 hidden sm:block">
-          {navBarItems.map((item) => (
-            <NavBarNavItem
-              key={item.title}
-              title={item.title}
-              link={item.link}
-            />
-          ))}
+        <div
+          className={`lg:flex ${
+            isMenuOpen ? "flex" : "hidden"
+          } flex-col lg:flex-row items-center lg:space-x-2`}
+        >
+          {navBarItems.map((item) => {
+            if (item.submenuItems) {
+              return (
+                <NavbarItemWithDropDown
+                  key={item.title}
+                  listItems={item.submenuItems}
+                >
+                  <NavBarNavItem
+                    title={item.title}
+                    link={item.link}
+                    isDropdown={true}
+                  />
+                </NavbarItemWithDropDown>
+              );
+            } else {
+              return (
+                <NavBarNavItem
+                  key={item.title}
+                  title={item.title}
+                  link={item.link}
+                />
+              );
+            }
+          })}
         </div>
-
-        {/* User Avatar Section - Flex 1 to grow and take equal space */}
         <div className="flex-1 justify-end flex">
-          <NavbarItemWithDropDown>
+          <NavbarItemWithDropDown listItems={userListItems}>
             <NavBarUserAvatar />
           </NavbarItemWithDropDown>
         </div>
@@ -48,11 +99,19 @@ export function Navbar() {
   );
 }
 
-const NavBarNavItem = ({ title, link }: { title: string; link: string }) => {
+const NavBarNavItem = ({
+  title,
+  link,
+  isDropdown = false,
+}: {
+  title: string;
+  link: string;
+  isDropdown?: boolean;
+}) => {
   const navigate = useNavigate();
   return (
     <button
-      onClick={() => navigate(link)}
+      onClick={isDropdown ? () => {} : () => navigate(link)}
       className="btn btn-ghost"
       style={{
         height: "1.5rem",
@@ -60,6 +119,24 @@ const NavBarNavItem = ({ title, link }: { title: string; link: string }) => {
     >
       {title}
     </button>
+  );
+};
+
+const NavbarItemWithDropDown = ({
+  children,
+  listItems,
+}: {
+  children: React.ReactNode;
+  listItems: {
+    title: string;
+    link: string;
+  }[];
+}) => {
+  return (
+    <div className="dropdown dropdown-end">
+      {children}
+      <NavBarDropDownMenu listItems={listItems} />
+    </div>
   );
 };
 
@@ -79,25 +156,14 @@ const NavBarLogo = () => {
   );
 };
 
-const NavBarDropDownMenu = ({ user }: { user?: User }) => {
-  const [isMenuOpen, setMenuOpen] = useState(true);
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
-  const listItems = user
-    ? [
-        { title: "Profile", link: "/profile" },
-        { title: "Settings", link: "/settings" },
-        { title: "Contact Us", link: "/contact-us" },
-        { title: "Logout", link: "/" },
-      ]
-    : [
-        { title: "Login", link: "/login" },
-        { title: "Sign Up", link: "/user/create" },
-        { title: "Contact Us", link: "/contact-us" },
-      ];
-
+const NavBarDropDownMenu = ({
+  listItems,
+}: {
+  listItems: {
+    title: string;
+    link: string;
+  }[];
+}) => {
   return (
     <div>
       <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -105,9 +171,7 @@ const NavBarDropDownMenu = ({ user }: { user?: User }) => {
           return (
             <li key={item.title}>
               {/* Add onClick handler to close the menu when an item is clicked */}
-              <Link to={item.link} onClick={closeMenu}>
-                {item.title}
-              </Link>
+              <Link to={item.link}>{item.title}</Link>
             </li>
           );
         })}
@@ -138,18 +202,5 @@ const NavBarUserAvatar = ({ user }: { user?: User }) => {
         </div>
       </div>
     </>
-  );
-};
-
-const NavbarItemWithDropDown = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  return (
-    <div className="dropdown dropdown-end">
-      {children}
-      <NavBarDropDownMenu />
-    </div>
   );
 };
