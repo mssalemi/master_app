@@ -3,39 +3,44 @@ import { Form } from "@remix-run/react";
 import { useState, useEffect } from "react";
 import { FORMULAS, FormulaType } from "../types";
 
+import { Badge } from "../../../master-components/shadcn/badge";
+import { Switch } from "~/master-components/shadcn/switch";
+
 interface Props {
   title: string;
-  buttonTitle: string;
   description: string;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  oneRepMax?: number;
 }
 
 import { Modal } from "./Modal/Modal";
 import { StatCard } from "./StatCard";
 
-export const OneRepCalculator = ({
-  buttonTitle,
-  description,
-  title,
-  handleSubmit,
-}: Props) => {
+export const OneRepCalculator = ({ description, title, oneRepMax }: Props) => {
+  const buttonTitle = "Calculate";
   // Form Item Number 1
   const [formulaType, setFormulaType] = useState<FormulaType>(FORMULAS[0]);
+  const [checked, setChecked] = useState<boolean>(true); // lbs
+
+  // Form Item Number 2
+  const [weight, setWeight] = useState<number>(0);
+  const [reps, setReps] = useState<number>(0);
 
   useEffect(() => {
     console.log("[OneRepCalculator]", formulaType);
-  }, [formulaType]);
+    console.log("[OneRepCalculator]", weight);
+  }, [formulaType, weight]);
 
   return (
-    <div className="card-compact bg-base-100 shadow-xl">
+    <div className="">
       <Form action="/calculator" method="post">
         <div className="card-body">
-          <div className="flex flex-col md:flex-row md:justify-between gap-4">
-            <div className="w-full md:w-2/3">
+          <div className="flex flex-col gap-4">
+            <div className="w-full">
               <h2 className="card-title">
                 {title}{" "}
                 <div className="flex p-4 items-center">
-                  <div className="badge badge-primary">{formulaType.type}</div>
+                  {/* <div className="badge badge-primary">{formulaType.type}</div> */}
+                  <Badge>{formulaType.type}</Badge>
                   <Modal
                     handleFormulaChange={setFormulaType}
                     currentFormula={formulaType}
@@ -43,20 +48,71 @@ export const OneRepCalculator = ({
                 </div>
               </h2>
               <p className="text-base">{description}</p>
-              <StatCard
-                key={"1rm"}
-                textColor="primary-content"
-                title={"1RM"}
-                units={"Estimate"}
-                value={0}
-                compact
-              />
-              <div className="mt-4">
-                <button type="submit" className="btn btn-primary">
-                  {buttonTitle}
-                </button>
-              </div>
+              {oneRepMax && (
+                <StatCard
+                  key={"1rm"}
+                  textColor="primary-content"
+                  title={"1RM"}
+                  units={"Estimate"}
+                  value={0}
+                  compact
+                />
+              )}
+              {
+                // Form Item Number 2
+              }
             </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Weight (lbs or kg)</span>
+              </label>
+              <input
+                type="number"
+                placeholder="Enter weight"
+                className="input input-bordered w-full"
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
+                name="weight"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Reps Completed</span>
+              </label>
+              <input
+                type="number"
+                placeholder="Enter reps"
+                className="input input-bordered input-full w-full max-w-md"
+                value={reps}
+                onChange={(e) => setReps(e.target.value)}
+                name="reps"
+              />
+            </div>
+          </div>
+          <div className="flex items-center space-x-2">
+            <label htmlFor="unit-toggle" className="text-lg font-medium">
+              Units
+            </label>
+            <input
+              id="unit-toggle"
+              type="checkbox"
+              className="toggle toggle-secondary"
+              checked={checked}
+              onChange={() => setChecked(!checked)}
+              name="units"
+              aria-label="Toggle between pounds and kilograms"
+            />
+            <span className="text-sm font-semibold">
+              {checked ? "lbs" : "kg"}
+            </span>
+          </div>
+
+          <div className="mt-4">
+            <button type="submit" className="btn btn-primary btn-block btn-sm">
+              {buttonTitle}
+            </button>
           </div>
         </div>
       </Form>

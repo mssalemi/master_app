@@ -7,11 +7,12 @@ import { FormulaExplorer } from "../components/Calculator/FormulaExplorer";
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const formulaType = formData.get("formulaType");
+  const weight = formData.get("weight");
+  const reps = formData.get("reps");
   console.log("Formula Type Received:", formulaType);
-
-  // Process your form data here
-
-  // After processing, you can redirect or return a success response
+  console.log("Weight Received:", weight);
+  console.log("Reps Received:", reps);
+  console.log("Units received:", formData.get("units") == "on" ? "lbs" : "kgs");
   return json({ success: true });
 };
 

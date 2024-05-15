@@ -8,15 +8,10 @@ export const Calculator = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="stats">
+        <div className="">
           <OneRepCalculator
             title={"Calculator your 1RepMax"}
             description={defaultDesc}
-            buttonTitle={"Calculator"}
-            handleSubmit={(e) => {
-              e.preventDefault();
-              console.log("hey");
-            }}
           />
         </div>
       </div>
