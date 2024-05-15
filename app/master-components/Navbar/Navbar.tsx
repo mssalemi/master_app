@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Command } from "lucide-react";
 
 const GUEST_USER_AVATAR_IMG_URL =
@@ -19,6 +19,7 @@ export function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
   const user = true;
+  const navigate = useNavigate();
 
   const navBarItems: NavBarItems[] = [
     { title: "Home", link: "/" },
@@ -55,13 +56,18 @@ export function Navbar() {
 
   return (
     <>
-      <div className="navbar px-1">
+      <div className="navbar">
         <div className="flex-1 flex justify-between lg:justify-start">
           <NavBarLogo />
         </div>
         <>
           <DesktopNavBarMenu navBarItems={navBarItems} />
-          <MobileNavBarMenu navBarItems={navBarItems} />
+          <MobileNavBarMenu
+            navBarItems={navBarItems}
+            toggleMenu={toggleMenu}
+            isMenuOpen={isMenuOpen}
+            navigate={navigate}
+          />
         </>
 
         <div className="flex-1 justify-end flex">
@@ -107,11 +113,48 @@ const DesktopNavBarMenu = ({ navBarItems }: { navBarItems: NavBarItems[] }) => {
   );
 };
 
-const MobileNavBarMenu = ({ navBarItems }: { navBarItems: NavBarItems[] }) => {
+const MobileNavBarMenu = ({
+  navBarItems,
+  toggleMenu,
+  isMenuOpen,
+  navigate,
+}: {
+  navBarItems: NavBarItems[];
+  toggleMenu: () => void;
+  isMenuOpen: boolean;
+  navigate: (path: string) => void;
+}) => {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isMenuOpen) {
+        toggleMenu();
+      }
+    };
+
+    const mediaQuery = window.matchMedia("(min-width: 1024px)"); // Adjust according to your breakpoints
+
+    const handleMediaQueryChange = (e) => {
+      if (e.matches && isMenuOpen) {
+        toggleMenu();
+      }
+    };
+
+    // Add event listener
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Add event listeners
+    window.addEventListener("keydown", handleKeyDown);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown),
+        mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, [isMenuOpen, toggleMenu]);
   return (
-    <div className={`flex flex-col lg:hidden items-center space-x-2`}>
-      <button className="btn btn-ghost">
-        {" "}
+    <div className={`flex flex-col lg:hidden items-center`}>
+      <button className="btn btn-ghost" onClick={toggleMenu}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -130,6 +173,25 @@ const MobileNavBarMenu = ({ navBarItems }: { navBarItems: NavBarItems[] }) => {
           <path d="M4 18l16 0" />
         </svg>
       </button>
+      {isMenuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-4 pt-20">
+          {navBarItems.map((item) => (
+            <button
+              key={item.title}
+              className="text-white text-xl hover:text-blue-500"
+              onClick={() => {
+                navigate(item.link);
+                toggleMenu();
+              }}
+            >
+              {item.title}
+            </button>
+          ))}
+          <button className="mt-auto pb-20 text-white" onClick={toggleMenu}>
+            Close
+          </button>
+        </div>
+      )}
     </div>
   );
 };
