@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FORMULA_TYPE, FormulaType, findFormula, FORMULAS } from "../../types";
 interface PopoverProps {
   currentFormula: FormulaType;
-  handleFormulaChange: React.Dispatch<React.SetStateAction<FormulaType>>;
+  handleFormulaChange: (formulaType: FormulaType) => void;
   close: () => void;
 }
 
@@ -17,14 +17,13 @@ export const Popover = ({
   );
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     // Temporarily store the value of the selected formula
-    console.log(e.target.value);
     setPendingFormula(e.target.value as FORMULA_TYPE);
   };
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault();
     handleFormulaChange(findFormula(pendingFormula));
-    close(); // Close the modal after submission
+    close();
   };
 
   return (
@@ -54,7 +53,7 @@ export const Popover = ({
           >
             {FORMULAS.map((formula) => (
               <option key={formula.type} value={formula.type}>
-                {formula.type}
+                {formula.label}
               </option>
             ))}
           </select>

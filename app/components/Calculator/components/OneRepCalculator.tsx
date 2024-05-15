@@ -1,24 +1,28 @@
 import { Form } from "@remix-run/react";
 
 import { useState, useEffect } from "react";
-import { FORMULAS, FormulaType } from "../types";
+import { FormulaType } from "../types";
 
 import { Badge } from "../../../master-components/shadcn/badge";
-import { Switch } from "~/master-components/shadcn/switch";
 
 interface Props {
   title: string;
-  description: string;
   oneRepMax?: number;
+  formulaType: FormulaType;
+  handleFomulaChange: (formulaType: FormulaType) => void;
 }
 
 import { Modal } from "./Modal/Modal";
 import { StatCard } from "./StatCard";
 
-export const OneRepCalculator = ({ description, title, oneRepMax }: Props) => {
+export const OneRepCalculator = ({
+  formulaType,
+  handleFomulaChange,
+  title,
+  oneRepMax,
+}: Props) => {
   const buttonTitle = "Calculate";
   // Form Item Number 1
-  const [formulaType, setFormulaType] = useState<FormulaType>(FORMULAS[0]);
   const [checked, setChecked] = useState<boolean>(true); // lbs
 
   // Form Item Number 2
@@ -40,14 +44,14 @@ export const OneRepCalculator = ({ description, title, oneRepMax }: Props) => {
                 {title}{" "}
                 <div className="flex p-4 items-center">
                   {/* <div className="badge badge-primary">{formulaType.type}</div> */}
-                  <Badge>{formulaType.type}</Badge>
+                  <Badge>{formulaType.label}</Badge>
                   <Modal
-                    handleFormulaChange={setFormulaType}
+                    handleFormulaChange={handleFomulaChange}
                     currentFormula={formulaType}
                   />
                 </div>
               </h2>
-              <p className="text-base">{description}</p>
+              <p className="text-base">{formulaType.description}</p>
               {oneRepMax && (
                 <StatCard
                   key={"1rm"}

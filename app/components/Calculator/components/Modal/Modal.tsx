@@ -2,7 +2,7 @@ import { Popover } from "./Popover";
 import { FormulaType } from "../../types";
 
 interface ModalProps {
-  handleFormulaChange: React.Dispatch<React.SetStateAction<FormulaType>>;
+  handleFormulaChange: (formulaType: FormulaType) => void;
   currentFormula: FormulaType;
 }
 
