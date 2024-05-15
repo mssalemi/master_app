@@ -9,12 +9,18 @@ const SIGN_IN_USER_AVATAR_IMG_URL =
   "https://i.postimg.cc/V6ZR561n/DALL-E-2024-04-21-08-09-33-Create-a-cartoon-version-of-the-man-s-portrait-with-a-blue-background.webp";
 import { useNavigate, Link } from "@remix-run/react";
 
+interface NavBarItems {
+  title: string;
+  link: string;
+  submenuItems?: { title: string; link: string }[];
+}
+
 export function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
   const user = true;
 
-  const navBarItems = [
+  const navBarItems: NavBarItems[] = [
     { title: "Home", link: "/" },
     {
       title: "Calculator",
@@ -34,7 +40,7 @@ export function Navbar() {
     { title: "Tracker", link: "/tracker" },
   ];
 
-  const userListItems = user
+  const userListItems: NavBarItems[] = user
     ? [
         { title: "Profile", link: "/profile" },
         { title: "Settings", link: "/settings" },
@@ -53,59 +59,10 @@ export function Navbar() {
         <div className="flex-1 flex justify-between lg:justify-start">
           <NavBarLogo />
         </div>
-
-        <div
-          className={`lg:flex ${
-            isMenuOpen ? "flex" : "hidden"
-          } flex-col lg:flex-row items-center lg:space-x-2`}
-        >
-          {navBarItems.map((item) => {
-            if (item.submenuItems) {
-              return (
-                <NavbarItemWithDropDown
-                  key={item.title}
-                  listItems={item.submenuItems}
-                >
-                  <NavBarNavItem
-                    title={item.title}
-                    link={item.link}
-                    isDropdown={true}
-                  />
-                </NavbarItemWithDropDown>
-              );
-            } else {
-              return (
-                <NavBarNavItem
-                  key={item.title}
-                  title={item.title}
-                  link={item.link}
-                />
-              );
-            }
-          })}
-        </div>
-        <div className={`flex flex-col lg:hidden items-center space-x-2`}>
-          <button className="btn btn-ghost">
-            {" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 6l16 0" />
-              <path d="M4 12l16 0" />
-              <path d="M4 18l16 0" />
-            </svg>
-          </button>
-        </div>
+        <>
+          <DesktopNavBarMenu navBarItems={navBarItems} />
+          <MobileNavBarMenu navBarItems={navBarItems} />
+        </>
 
         <div className="flex-1 justify-end flex">
           <NavbarItemWithDropDown listItems={userListItems}>
@@ -116,6 +73,66 @@ export function Navbar() {
     </>
   );
 }
+
+const DesktopNavBarMenu = ({ navBarItems }: { navBarItems: NavBarItems[] }) => {
+  return (
+    <div
+      className={`lg:flex hidden flex-col lg:flex-row items-center lg:space-x-2`}
+    >
+      {navBarItems.map((item) => {
+        if (item.submenuItems) {
+          return (
+            <NavbarItemWithDropDown
+              key={item.title}
+              listItems={item.submenuItems}
+            >
+              <NavBarNavItem
+                title={item.title}
+                link={item.link}
+                isDropdown={true}
+              />
+            </NavbarItemWithDropDown>
+          );
+        } else {
+          return (
+            <NavBarNavItem
+              key={item.title}
+              title={item.title}
+              link={item.link}
+            />
+          );
+        }
+      })}
+    </div>
+  );
+};
+
+const MobileNavBarMenu = ({ navBarItems }: { navBarItems: NavBarItems[] }) => {
+  return (
+    <div className={`flex flex-col lg:hidden items-center space-x-2`}>
+      <button className="btn btn-ghost">
+        {" "}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 6l16 0" />
+          <path d="M4 12l16 0" />
+          <path d="M4 18l16 0" />
+        </svg>
+      </button>
+    </div>
+  );
+};
 
 const NavBarNavItem = ({
   title,
