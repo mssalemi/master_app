@@ -66,7 +66,7 @@ export const OneRepCalculator = ({ description, title, oneRepMax }: Props) => {
           <div className="flex justify-center">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Weight (lbs or kg)</span>
+                <span className="label-text">Weight</span>
               </label>
               <input
                 type="number"
