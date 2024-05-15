@@ -5,7 +5,6 @@ const defaultDesc =
   "This is using the EPLEY Formula. Enter your weight and reps to calculate your 1RM.";
 
 export const Calculator = () => {
-  const displayRepMaxPercentages = true;
   return (
     <>
       <div className="flex flex-col">

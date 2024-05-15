@@ -1,9 +1,9 @@
 import { Popover } from "./Popover";
-import { FORMULA_TYPE } from "../../types";
+import { FormulaType } from "../../types";
 
 interface ModalProps {
-  handleFormulaChange: React.Dispatch<React.SetStateAction<FORMULA_TYPE>>;
-  currentFormula: FORMULA_TYPE;
+  handleFormulaChange: React.Dispatch<React.SetStateAction<FormulaType>>;
+  currentFormula: FormulaType;
 }
 
 export const Modal = ({ handleFormulaChange, currentFormula }: ModalProps) => {

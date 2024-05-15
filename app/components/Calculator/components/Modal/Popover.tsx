@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import { FORMULA_TYPE } from "../../types";
+import { FORMULA_TYPE, FormulaType, findFormula, FORMULAS } from "../../types";
 interface PopoverProps {
-  currentFormula: FORMULA_TYPE;
-  handleFormulaChange: React.Dispatch<React.SetStateAction<FORMULA_TYPE>>;
+  currentFormula: FormulaType;
+  handleFormulaChange: React.Dispatch<React.SetStateAction<FormulaType>>;
   close: () => void;
 }
 
@@ -12,8 +12,9 @@ export const Popover = ({
   handleFormulaChange,
   close,
 }: PopoverProps) => {
-  const [pendingFormula, setPendingFormula] =
-    useState<FORMULA_TYPE>(currentFormula);
+  const [pendingFormula, setPendingFormula] = useState<FORMULA_TYPE>(
+    currentFormula.type
+  );
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     // Temporarily store the value of the selected formula
     console.log(e.target.value);
@@ -22,7 +23,7 @@ export const Popover = ({
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); // Prevent default form submission behavior
-    handleFormulaChange(pendingFormula);
+    handleFormulaChange(findFormula(pendingFormula));
     close(); // Close the modal after submission
   };
 
@@ -51,10 +52,11 @@ export const Popover = ({
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={handleSelectChange}
           >
-            <option value="epley">Epley</option>
-            <option value="brzycki">Brzycki</option>
-            <option value="landercalder">Lander/Calder</option>
-            <option value="lombardi">Lombardi</option>
+            {FORMULAS.map((formula) => (
+              <option key={formula.type} value={formula.type}>
+                {formula.type}
+              </option>
+            ))}
           </select>
         </div>
         <div className="modal-action mt-4">

@@ -1,7 +1,7 @@
 import { Form } from "@remix-run/react";
 
 import { useState, useEffect } from "react";
-import { FORMULA_TYPE } from "../types";
+import { FORMULAS, FormulaType } from "../types";
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ export const OneRepCalculator = ({
   handleSubmit,
 }: Props) => {
   // Form Item Number 1
-  const [formulaType, setFormulaType] = useState<FORMULA_TYPE>("brzycki");
+  const [formulaType, setFormulaType] = useState<FormulaType>(FORMULAS[0]);
 
   useEffect(() => {
     console.log("[OneRepCalculator]", formulaType);
@@ -35,7 +35,7 @@ export const OneRepCalculator = ({
               <h2 className="card-title">
                 {title}{" "}
                 <div className="flex p-4 items-center">
-                  <div className="badge badge-primary">{formulaType}</div>
+                  <div className="badge badge-primary">{formulaType.type}</div>
                   <Modal
                     handleFormulaChange={setFormulaType}
                     currentFormula={formulaType}
