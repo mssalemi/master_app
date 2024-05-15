@@ -52,13 +52,8 @@ export function Navbar() {
       <div className="navbar px-1">
         <div className="flex-1 flex justify-between lg:justify-start">
           <NavBarLogo />
-          <button
-            className="lg:hidden btn btn-square btn-ghost"
-            onClick={toggleMenu}
-          >
-            <Command />
-          </button>
         </div>
+
         <div
           className={`lg:flex ${
             isMenuOpen ? "flex" : "hidden"
@@ -89,6 +84,29 @@ export function Navbar() {
             }
           })}
         </div>
+        <div className={`flex flex-col lg:hidden items-center space-x-2`}>
+          <button className="btn btn-ghost">
+            {" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 6l16 0" />
+              <path d="M4 12l16 0" />
+              <path d="M4 18l16 0" />
+            </svg>
+          </button>
+        </div>
+
         <div className="flex-1 justify-end flex">
           <NavbarItemWithDropDown listItems={userListItems}>
             <NavBarUserAvatar />
