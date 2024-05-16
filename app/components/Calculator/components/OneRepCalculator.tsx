@@ -44,7 +44,7 @@ export const OneRepCalculator = ({
                 {title}{" "}
                 <div className="flex p-4 items-center">
                   {/* <div className="badge badge-primary">{formulaType.type}</div> */}
-                  <Badge>{formulaType.label}</Badge>
+                  <Badge>{formulaType.type}</Badge>
                   <Modal
                     handleFormulaChange={handleFomulaChange}
                     currentFormula={formulaType}
