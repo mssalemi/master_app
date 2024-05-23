@@ -60,7 +60,6 @@ export default function UserCreatePage() {
           fields={formFields}
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("hey");
             console.log(e.target);
           }}
           title={"Sign Up"}

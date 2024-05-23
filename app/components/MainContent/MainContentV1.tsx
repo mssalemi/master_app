@@ -109,35 +109,33 @@ const WorkoutProgramsTable = () => {
           {/* row 1 */}
           {items.map((item, index) => {
             return (
-              <>
-                <tr key={index}>
-                  <td>
-                    <div className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img
-                            src={item.avatarUrl}
-                            alt="Workout Program Author"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">{item.author}</div>
-                        <div className="text-sm opacity-50">{item.country}</div>
+              <tr key={index}>
+                <td>
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img
+                          src={item.avatarUrl}
+                          alt="Workout Program Author"
+                        />
                       </div>
                     </div>
-                  </td>
-                  <td>
-                    <span className="badge badge-ghost badge-sm">
-                      {item.level}
-                    </span>
-                  </td>
-                  <td>{item.workoutsPerWeek}</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
-                  </th>
-                </tr>
-              </>
+                    <div>
+                      <div className="font-bold">{item.author}</div>
+                      <div className="text-sm opacity-50">{item.country}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span className="badge badge-ghost badge-sm">
+                    {item.level}
+                  </span>
+                </td>
+                <td>{item.workoutsPerWeek}</td>
+                <th>
+                  <button className="btn btn-ghost btn-xs">details</button>
+                </th>
+              </tr>
             );
           })}
         </tbody>

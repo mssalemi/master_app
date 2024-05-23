@@ -11,7 +11,6 @@ import { columns } from "../../../master-components/shadcn/columns";
 import { Button } from "../../../master-components/shadcn/button";
 
 import { apps } from "./apps";
-import { Separator } from "../../../master-components/shadcn/separator";
 
 export function WorkoutProgramsTab() {
   return (

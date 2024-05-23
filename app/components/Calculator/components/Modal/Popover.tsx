@@ -13,7 +13,7 @@ export const Popover = ({
   close,
 }: PopoverProps) => {
   const [pendingFormula, setPendingFormula] = useState<FORMULA_TYPE>(
-    currentFormula.type
+    currentFormula?.type || FORMULAS[0].type
   );
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     // Temporarily store the value of the selected formula

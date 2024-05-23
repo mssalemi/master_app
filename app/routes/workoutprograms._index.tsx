@@ -7,7 +7,6 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -33,7 +32,6 @@ export const meta: MetaFunction = () => {
 };
 
 export default function WorkoutProgramsPage() {
-  console.log(WORKOUT_PROGRAMS_EXAMPLE);
   return (
     <Layout>
       <LayoutHeader>
@@ -71,8 +69,6 @@ const invoices = [
 ];
 
 const WorkoutProgramsSearchTable = () => {
-  console.log("go gere");
-
   return (
     <>
       <div className="flex flex-col items-center">

@@ -10,28 +10,34 @@ interface Props {
   oneRepMax?: number;
   formulaType: FormulaType;
   handleFomulaChange: (formulaType: FormulaType) => void;
+  currentData?: {
+    oneRepMax: number;
+    reps: number;
+    weight: number;
+    units: string;
+  };
 }
 
 import { Modal } from "./Modal/Modal";
-import { StatCard } from "./StatCard";
 
 export const OneRepCalculator = ({
   formulaType,
   handleFomulaChange,
   title,
   oneRepMax,
+  currentData,
 }: Props) => {
   const buttonTitle = "Calculate";
   // Form Item Number 1
   const [checked, setChecked] = useState<boolean>(true); // lbs
 
   // Form Item Number 2
-  const [weight, setWeight] = useState<number>(0);
-  const [reps, setReps] = useState<number>(0);
+  const [weight, setWeight] = useState<number>(currentData?.weight || 0);
+  const [reps, setReps] = useState<number>(currentData?.reps || 0);
 
   useEffect(() => {
-    console.log("[OneRepCalculator]", formulaType);
-    console.log("[OneRepCalculator]", weight);
+    // console.log("[OneRepCalculator]", formulaType);
+    // console.log("[OneRepCalculator]", weight);
   }, [formulaType, weight]);
 
   return (
@@ -44,27 +50,14 @@ export const OneRepCalculator = ({
                 {title}{" "}
                 <div className="flex p-4 items-center">
                   {/* <div className="badge badge-primary">{formulaType.type}</div> */}
-                  <Badge>{formulaType.type}</Badge>
+                  <Badge>{formulaType?.label}</Badge>
                   <Modal
                     handleFormulaChange={handleFomulaChange}
                     currentFormula={formulaType}
                   />
                 </div>
               </h2>
-              <p className="text-base">{formulaType.description}</p>
-              {oneRepMax && (
-                <StatCard
-                  key={"1rm"}
-                  textColor="primary-content"
-                  title={"1RM"}
-                  units={"Estimate"}
-                  value={0}
-                  compact
-                />
-              )}
-              {
-                // Form Item Number 2
-              }
+              <p className="text-base">{formulaType?.description}</p>
             </div>
           </div>
           <div className="flex justify-center">

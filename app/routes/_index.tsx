@@ -6,7 +6,6 @@ import { InfoHeroContent } from "../components/InfoHeroContent/InfoHeroContent.j
 
 import { MainContentV1 } from "../components/MainContent/MainContentV1.js";
 import { QuickCalculator } from "../components/QuickCalculator/QuickCalculator.js";
-import { QuickCalculator2 } from "../components/QuickCalculator/QuickCalculator2.js";
 import { PopularPrograms } from "../components/PopularPrograms/PopularPrograms.js";
 import FlashyBorder from "~/master-components/FlashBorder/FlashyBorder";
 
@@ -70,6 +69,10 @@ const HeroButton = ({ title }: { title: string }) => {
   );
 };
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout = ({ children }: LayoutProps) => {
   return <div className="flex flex-col px-16 py-8">{children}</div>;
 };

@@ -1,7 +1,6 @@
 import { HTMLAttributes, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { IconBrandFacebook, IconBrandGithub } from "@tabler/icons-react";
 import { z } from "zod";
 import {
   Form,
@@ -13,10 +12,18 @@ import {
 } from "../../master-components/shadcn/form";
 import { Input } from "../../master-components/shadcn/input";
 import { Button } from "../../master-components/shadcn/button";
-import { PasswordInput } from "../../master-components/shadcn/password-input";
 import { cn } from "../../lib/utils";
 
-interface SignUpFormProps extends HTMLAttributes<HTMLDivElement> {}
+import { FormulaType } from "../Calculator/types";
+
+interface QuickCalculatorFormProps {
+  formula: FormulaType;
+  handleonerepmaxchange: React.Dispatch<
+    React.SetStateAction<number | undefined>
+  >;
+}
+
+const ORM_SUBMIT_BTN_TEXT = "Calculate 1 Rep Max";
 
 const formSchema = z.object({
   // email: z
@@ -37,7 +44,10 @@ const formSchema = z.object({
   pounds: z.boolean().optional(),
 });
 
-export function QuickCalculator2({ className, ...props }: SignUpFormProps) {
+export function QuickCalculatorForm({
+  formula,
+  handleOneRepMaxChange,
+}: QuickCalculatorFormProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -49,17 +59,17 @@ export function QuickCalculator2({ className, ...props }: SignUpFormProps) {
     },
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsLoading(true);
-    console.log(data);
-
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }
+    const newOneRepMaxEstimate = Math.round(
+      formula.formula(data.weight, data.reps)
+    );
+    handleOneRepMaxChange(newOneRepMaxEstimate);
+    setIsLoading(false);
+  };
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={cn("grid gap-6")}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="grid gap-2 bg-base-100 p-4">
@@ -89,9 +99,7 @@ export function QuickCalculator2({ className, ...props }: SignUpFormProps) {
                 </FormItem>
               )}
             />
-            <Button className="mt-2" loading={isLoading}>
-              Calculate 1 Rep Max
-            </Button>
+            <Button className="mt-2">{ORM_SUBMIT_BTN_TEXT}</Button>
           </div>
         </form>
       </Form>

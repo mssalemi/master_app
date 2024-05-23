@@ -25,7 +25,7 @@ export function PopularPrograms() {
     <div className="p-4">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tighter py-6">
         <span className="font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 text-transparent bg-clip-text bg-300% animate-gradient">
-          Popular Program's
+          {"Popular Program's"}
         </span>
       </h1>
       <ProgramCardGrid />
@@ -53,7 +53,6 @@ const ProgramCardGrid = () => {
           <ProgramCard />
         </div>
       </div>
-      <div className="flex gap-2"></div>
     </>
   );
 };

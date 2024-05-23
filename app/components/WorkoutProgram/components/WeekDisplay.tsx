@@ -11,8 +11,6 @@ interface WorkoutViewProps {
 }
 
 export function WeekDisplay({ week }: { week: WeekType }) {
-  console.log(week);
-
   const workouts: WorkoutViewProps[] = week.days.map((day) => {
     return {
       name: day.title,
@@ -53,8 +51,6 @@ export function WeekDisplay({ week }: { week: WeekType }) {
       ),
     };
   });
-
-  console.log(workouts);
 
   return (
     <>
